@@ -3,4 +3,5 @@ langchain-openai>=0.2.0
 langchain-core>=0.3.0
 exa-py>=1.0.0
 python-dotenv>=1.0.0
+ruff>=0.6.0
 
