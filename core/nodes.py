@@ -30,7 +30,7 @@ def search_node(state: ResearchState) -> ResearchState:
 def decide_node(state: ResearchState) -> ResearchState:
     """
     Compress findings, identify knowledge gaps, and decide if more searches needed.
-    
+
     This node:
     1. Compresses all search results into a clean summary
     2. Identifies knowledge gaps
