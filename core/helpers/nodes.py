@@ -548,7 +548,7 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
             pisa_status = pisa.CreatePDF(styled_html, dest=pdf_file)
 
         if pisa_status.err:
-            print(f"⚠️ Warning: PDF generation had errors")
+            print("⚠️ Warning: PDF generation had errors")
             print(f"   Markdown report is still available at: {markdown_path}")
         else:
             print(f"✓ PDF saved: {pdf_path}")
