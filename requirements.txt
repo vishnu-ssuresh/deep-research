@@ -1,7 +1,7 @@
-langgraph>=0.2.0
-langchain-openai>=0.2.0
-langchain-core>=0.3.0
-exa-py>=1.0.0
-python-dotenv>=1.0.0
-ruff>=0.6.0
+langgraph>=0.6.11
+langchain-openai>=0.3.35
+langchain-core>=0.3.79
+exa-py>=2.0.0
+python-dotenv>=1.2.1
+ruff>=0.14.4
 
