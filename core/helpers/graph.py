@@ -9,6 +9,7 @@ from .nodes import (
     generate_report_node,
     reflection_node,
     research_brief_node,
+    save_pdf_node,
     search_node,
 )
 from .state import ResearchState
@@ -40,6 +41,7 @@ def create_graph():
         6. reflect: Analyze compressed findings, identify gaps, decide next steps
         7. [Conditional] Back to generate_queries OR proceed to generate_report
         8. generate_report: Create final comprehensive markdown report
+        9. save_pdf: Convert markdown to PDF and save both locally
 
     The graph supports iterative research with up to 5 search iterations,
     refining queries based on identified knowledge gaps.
@@ -55,6 +57,7 @@ def create_graph():
     workflow.add_node("compress", compression_node)
     workflow.add_node("reflect", reflection_node)
     workflow.add_node("generate_report", generate_report_node)
+    workflow.add_node("save_pdf", save_pdf_node)
 
     # Set entry point
     workflow.add_edge(START, "clarify")
@@ -78,8 +81,11 @@ def create_graph():
         },
     )
 
+    # Add edge from generate_report to save_pdf
+    workflow.add_edge("generate_report", "save_pdf")
+
     # Add final edge to END
-    workflow.add_edge("generate_report", END)
+    workflow.add_edge("save_pdf", END)
 
     # Compile and return the graph
     return workflow.compile()

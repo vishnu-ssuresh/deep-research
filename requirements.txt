@@ -4,4 +4,6 @@ langchain-core>=0.3.79
 exa-py>=2.0.0
 python-dotenv>=1.2.1
 ruff>=0.14.4
+markdown>=3.5.0
+xhtml2pdf>=0.2.16
 

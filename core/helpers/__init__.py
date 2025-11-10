@@ -8,6 +8,7 @@ from .nodes import (
     generate_report_node,
     reflection_node,
     research_brief_node,
+    save_pdf_node,
     search_node,
 )
 from .state import ResearchState
@@ -22,4 +23,5 @@ __all__ = [
     "compression_node",
     "reflection_node",
     "generate_report_node",
+    "save_pdf_node",
 ]

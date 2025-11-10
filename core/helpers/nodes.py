@@ -1,17 +1,23 @@
 """Node implementations for the deep research agent."""
 
+import os
+
+import markdown
 from langchain_core.messages import AIMessage, HumanMessage
+from xhtml2pdf import pisa
 
 from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries
 from ..prompts import (
     CLARIFY_SYSTEM_PROMPT,
     COMPRESSION_SYSTEM_PROMPT,
     DECIDE_SYSTEM_PROMPT,
+    FILENAME_GENERATION_SYSTEM_PROMPT,
     GENERATE_QUERIES_SYSTEM_PROMPT,
     GENERATE_REPORT_SYSTEM_PROMPT,
     RESEARCH_BRIEF_SYSTEM_PROMPT,
     build_clarify_user_prompt,
     build_compression_user_prompt,
+    build_filename_user_prompt,
     build_generate_queries_user_prompt,
     build_reflection_user_prompt,
     build_report_user_prompt,
@@ -400,3 +406,157 @@ def generate_report_node(state: ResearchState) -> ResearchState:
         "search_iteration": state.get("search_iteration", 0),
         "needs_more_context": False,  # Done with research
     }
+
+
+def save_pdf_node(state: ResearchState) -> ResearchState:
+    """
+    Convert markdown report to PDF and save locally.
+
+    This node:
+    1. Extracts the markdown report from messages
+    2. Uses LLM to generate a clean filename
+    3. Converts markdown to HTML
+    4. Converts HTML to PDF
+    5. Saves both markdown and PDF versions
+    """
+    messages = state["messages"]
+
+    # Find the report (last AI message with substantial content)
+    report_content = None
+    for msg in reversed(messages):
+        if msg.type == "ai" and len(msg.content) > 1000:
+            report_content = msg.content
+            break
+
+    if not report_content:
+        print("⚠️ Warning: No report found to convert to PDF")
+        return state
+
+    # Get original query
+    original_query = messages[0].content if messages else "research_report"
+
+    # Initialize OpenAI client
+    llm = OpenAIClient()
+
+    # Use LLM to generate a clean filename
+    user_prompt = build_filename_user_prompt(original_query)
+
+    filename = llm.call(
+        system_prompt=FILENAME_GENERATION_SYSTEM_PROMPT,
+        user_prompt=user_prompt,
+        temperature=0.3,
+    ).strip()
+
+    # Create reports directory if it doesn't exist
+    reports_dir = "reports"
+    os.makedirs(reports_dir, exist_ok=True)
+
+    markdown_path = os.path.join(reports_dir, f"{filename}.md")
+    pdf_path = os.path.join(reports_dir, f"{filename}.pdf")
+
+    print("\n=== Saving Report ===")
+
+    # Save markdown version
+    try:
+        with open(markdown_path, "w", encoding="utf-8") as f:
+            f.write(report_content)
+        print(f"✓ Markdown saved: {markdown_path}")
+    except Exception as e:
+        print(f"⚠️ Warning: Failed to save markdown: {str(e)}")
+        return state
+
+    # Convert markdown to HTML
+    try:
+        html_content = markdown.markdown(
+            report_content, extensions=["extra", "codehilite", "tables", "toc"]
+        )
+
+        # Add CSS styling for better PDF output
+        styled_html = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <style>
+                @page {{
+                    size: A4;
+                    margin: 2cm;
+                }}
+                body {{
+                    font-family: 'Helvetica', 'Arial', sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    max-width: 100%;
+                }}
+                h1 {{
+                    color: #2c3e50;
+                    border-bottom: 3px solid #3498db;
+                    padding-bottom: 10px;
+                    margin-top: 30px;
+                }}
+                h2 {{
+                    color: #34495e;
+                    border-bottom: 2px solid #95a5a6;
+                    padding-bottom: 8px;
+                    margin-top: 25px;
+                }}
+                h3 {{
+                    color: #34495e;
+                    margin-top: 20px;
+                }}
+                a {{
+                    color: #3498db;
+                    text-decoration: none;
+                }}
+                a:hover {{
+                    text-decoration: underline;
+                }}
+                p {{
+                    margin: 12px 0;
+                    text-align: justify;
+                }}
+                ul, ol {{
+                    margin: 12px 0;
+                    padding-left: 30px;
+                }}
+                li {{
+                    margin: 8px 0;
+                }}
+                code {{
+                    background-color: #f4f4f4;
+                    padding: 2px 6px;
+                    border-radius: 3px;
+                    font-family: 'Courier New', monospace;
+                }}
+                blockquote {{
+                    border-left: 4px solid #3498db;
+                    padding-left: 20px;
+                    margin: 20px 0;
+                    color: #555;
+                    font-style: italic;
+                }}
+            </style>
+        </head>
+        <body>
+            {html_content}
+        </body>
+        </html>
+        """
+
+        # Convert HTML to PDF using xhtml2pdf
+        with open(pdf_path, "wb") as pdf_file:
+            pisa_status = pisa.CreatePDF(styled_html, dest=pdf_file)
+
+        if pisa_status.err:
+            print(f"⚠️ Warning: PDF generation had errors")
+            print(f"   Markdown report is still available at: {markdown_path}")
+        else:
+            print(f"✓ PDF saved: {pdf_path}")
+
+    except Exception as e:
+        print(f"⚠️ Warning: Failed to generate PDF: {str(e)}")
+        print(f"   Markdown report is still available at: {markdown_path}")
+
+    print()
+
+    return state

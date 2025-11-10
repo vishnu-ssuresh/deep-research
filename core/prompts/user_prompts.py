@@ -189,3 +189,18 @@ DEPTH REQUIREMENTS:
 - Provide nuanced analysis that demonstrates deep understanding
 
 DO NOT mention that you are the final step of a research process. Write naturally as if you're an expert providing a comprehensive, detailed explanation."""
+
+
+def build_filename_user_prompt(original_query: str) -> str:
+    """Build user prompt for filename generation."""
+    return f"""Based on this research query, generate a short, clean filename (without extension).
+
+Research Query: {original_query}
+
+Requirements:
+- Use only lowercase letters, numbers, and underscores
+- Maximum 50 characters
+- Be descriptive but concise
+- No special characters or spaces
+
+Return ONLY the filename, nothing else."""

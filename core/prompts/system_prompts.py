@@ -114,3 +114,13 @@ DO NOT:
 - Skip details that add value to understanding
 
 Write naturally and professionally, as if you're an expert providing a thorough explanation to someone who wants to deeply understand the topic."""
+
+
+FILENAME_GENERATION_SYSTEM_PROMPT = """You are a filename generator. Generate clean, descriptive filenames based on research queries.
+
+Requirements:
+- Use only lowercase letters, numbers, and underscores
+- Maximum 50 characters
+- Be descriptive but concise
+- No special characters, spaces, or file extensions
+- Return ONLY the filename, nothing else"""
