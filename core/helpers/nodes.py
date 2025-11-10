@@ -2,8 +2,12 @@
 
 from langchain_core.messages import AIMessage, HumanMessage
 
-from ..models import ClarifyingQuestions
-from ..prompts import CLARIFY_SYSTEM_PROMPT, RESEARCH_BRIEF_SYSTEM_PROMPT
+from ..models import ClarifyingQuestions, SearchQueries
+from ..prompts import (
+    CLARIFY_SYSTEM_PROMPT,
+    GENERATE_QUERIES_SYSTEM_PROMPT,
+    RESEARCH_BRIEF_SYSTEM_PROMPT,
+)
 from ..services import OpenAIClient
 from .state import ResearchState
 
@@ -108,9 +112,78 @@ Create a research brief that clearly outlines:
 
 
 def generate_queries_node(state: ResearchState) -> ResearchState:
-    """Generate initial search queries based on research brief."""
-    # TODO: Implement
-    pass
+    """
+    Generate search queries based on research brief.
+    
+    This node:
+    1. Reads the research brief
+    2. Generates 3-5 targeted search queries
+    3. On iterations > 0, uses follow_up_queries from decide_node
+    4. Stores queries in state
+    """
+    research_brief = state.get("research_brief", "")
+    search_iteration = state.get("search_iteration", 0)
+    
+    # Initialize OpenAI client
+    llm = OpenAIClient()
+    
+    # Determine if this is initial or follow-up queries
+    if search_iteration == 0:
+        # Initial queries based on research brief
+        iteration_context = ""
+        num_queries = 5
+        
+        user_prompt = f"""Research Brief:
+{research_brief}
+
+Generate {num_queries} diverse, targeted search queries to gather comprehensive information for this research."""
+    else:
+        # This shouldn't happen as decide_node generates follow-up queries
+        # But keeping as fallback
+        compressed_findings = state.get("compressed_findings", "")
+        knowledge_gaps = state.get("knowledge_gaps", [])
+        
+        iteration_context = f" (iteration {search_iteration + 1})"
+        num_queries = 3
+        
+        gaps_text = "\n".join(f"- {gap}" for gap in knowledge_gaps)
+        
+        user_prompt = f"""Research Brief:
+{research_brief}
+
+Current Findings Summary:
+{compressed_findings}
+
+Knowledge Gaps:
+{gaps_text}
+
+Generate {num_queries} follow-up search queries to address the knowledge gaps."""
+    
+    # Format the system prompt with context
+    system_prompt = GENERATE_QUERIES_SYSTEM_PROMPT.format(
+        iteration_context=iteration_context,
+        num_queries=num_queries,
+    )
+    
+    response = llm.call(
+        system_prompt=system_prompt,
+        user_prompt=user_prompt,
+        temperature=0.7,
+        response_format=SearchQueries,
+    )
+    
+    queries = response.queries
+    
+    print(f"\n=== Generated Search Queries (Iteration {search_iteration + 1}) ===")
+    for i, query in enumerate(queries, 1):
+        print(f"{i}. {query}")
+    print()
+    
+    return {
+        "messages": state["messages"],
+        "research_brief": research_brief,
+        "search_queries": queries,
+    }
 
 
 def search_node(state: ResearchState) -> ResearchState:
