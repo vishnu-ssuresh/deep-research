@@ -195,7 +195,6 @@ def search_node(state: ResearchState) -> ResearchState:
             results = exa.call(
                 query=query,
                 num_results=5,
-                use_autoprompt=True,
                 text={"max_characters": 2000},
             )
 

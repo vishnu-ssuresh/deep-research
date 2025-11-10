@@ -1,7 +1,7 @@
 """Exa client for web search."""
 
 import os
-from typing import Any
+from typing import Any, Optional, Union
 
 from exa_py import Exa
 
@@ -11,7 +11,7 @@ from ..errors import APIKeyError, SearchServiceError
 class ExaClient:
     """Client for interacting with Exa search API."""
 
-    def __init__(self, api_key: str | None = None):
+    def __init__(self, api_key: Optional[str] = None):
         """
         Initialize Exa client.
 
@@ -30,9 +30,8 @@ class ExaClient:
         self,
         query: str,
         num_results: int = 5,
-        use_autoprompt: bool = True,
-        text: bool | dict[str, int] = True,
-        highlights: bool | dict[str, int] = False,
+        text: Union[bool, dict[str, int]] = True,
+        highlights: Union[bool, dict[str, int]] = False,
     ) -> list[dict[str, Any]]:
         """
         Search the web using Exa.
@@ -40,7 +39,6 @@ class ExaClient:
         Args:
             query: Search query
             num_results: Number of results to return
-            use_autoprompt: Whether to use Exa's autoprompt feature
             text: Whether to include page text. Can be bool or dict with max_characters
             highlights: Whether to include highlights. Can be bool or dict with options
 
@@ -55,7 +53,6 @@ class ExaClient:
             search_params = {
                 "query": query,
                 "num_results": num_results,
-                "use_autoprompt": use_autoprompt,
             }
 
             # Add text options

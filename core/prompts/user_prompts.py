@@ -1,6 +1,6 @@
 """User prompt generation functions for the deep research agent."""
 
-from typing import Any
+from typing import Any, Optional
 
 
 def build_clarify_user_prompt(original_query: str) -> str:
@@ -38,7 +38,7 @@ def build_generate_queries_user_prompt(
     search_iteration: int,
     num_queries: int = 5,
     compressed_findings: str = "",
-    knowledge_gaps: list[str] | None = None,
+    knowledge_gaps: Optional[list[str]] = None,
 ) -> str:
     """Build user prompt for search query generation."""
     if search_iteration == 0:
