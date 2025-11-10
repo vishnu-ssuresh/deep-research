@@ -74,13 +74,13 @@ Remember:
 - If the current findings are sufficient, generate fewer queries or none"""
 
 
-def build_reflection_user_prompt(
+def build_compression_user_prompt(
     research_brief: str,
     search_results: list[dict[str, Any]],
     search_iteration: int,
 ) -> str:
-    """Build user prompt for reflection/decision analysis."""
-    # Format search results for analysis
+    """Build user prompt for compression/summarization."""
+    # Format search results for compression
     results_text = []
     for i, result in enumerate(search_results, 1):
         result_info = f"""
@@ -102,16 +102,31 @@ Search Results from {search_iteration} iteration(s):
 
 Total results collected: {len(search_results)}
 
-Analyze these results carefully:
+Create a comprehensive, well-organized summary of all the findings from these search results. 
+Include all important information, key facts, statistics, and insights.
+Organize the information logically by themes or topics."""
 
+
+def build_reflection_user_prompt(
+    research_brief: str,
+    compressed_findings: str,
+    search_iteration: int,
+) -> str:
+    """Build user prompt for reflection/decision analysis."""
+    return f"""Research Brief:
+{research_brief}
+
+Compressed Findings from {search_iteration} iteration(s):
+{compressed_findings}
+
+Analyze these compressed findings and:
 1. Think through what you've learned and whether it's sufficient to answer the user's question
-2. Create a compressed summary of all findings
-3. Identify any CRITICAL knowledge gaps (not minor details, but essential information needed)
-4. Decide if the current information is sufficient to generate a comprehensive report
-5. ONLY generate follow-up queries if there are critical gaps that prevent answering the question
+2. Identify any CRITICAL knowledge gaps (not minor details, but essential information needed)
+3. Decide if the current information is sufficient to generate a comprehensive report
+4. ONLY generate follow-up queries if there are critical gaps that prevent answering the question
 
 Remember:
-- If the summaries are sufficient to answer the user's question, set needs_more_context to false and leave follow_up_queries empty
+- If the findings are sufficient to answer the user's question, set needs_more_context to false
 - Each follow-up query should focus on ONE specific knowledge gap
 - Don't generate similar queries
 - Make queries self-contained with necessary context for web search

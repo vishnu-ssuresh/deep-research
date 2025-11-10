@@ -5,11 +5,13 @@ from langchain_core.messages import AIMessage, HumanMessage
 from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries
 from ..prompts import (
     CLARIFY_SYSTEM_PROMPT,
+    COMPRESSION_SYSTEM_PROMPT,
     DECIDE_SYSTEM_PROMPT,
     GENERATE_QUERIES_SYSTEM_PROMPT,
     GENERATE_REPORT_SYSTEM_PROMPT,
     RESEARCH_BRIEF_SYSTEM_PROMPT,
     build_clarify_user_prompt,
+    build_compression_user_prompt,
     build_generate_queries_user_prompt,
     build_reflection_user_prompt,
     build_report_user_prompt,
@@ -221,27 +223,73 @@ def search_node(state: ResearchState) -> ResearchState:
     }
 
 
+def compression_node(state: ResearchState) -> ResearchState:
+    """
+    Compress all search results into a clean, comprehensive summary.
+    
+    This node:
+    1. Takes all accumulated search results
+    2. Distills them into a clean, comprehensive summary
+    3. Preserves all important information and findings
+    """
+    research_brief = state.get("research_brief", "")
+    search_results = state.get("search_results", [])
+    search_iteration = state.get("search_iteration", 0)
+    
+    # Initialize OpenAI client
+    llm = OpenAIClient()
+    
+    # Build user prompt
+    user_prompt = build_compression_user_prompt(
+        research_brief=research_brief,
+        search_results=search_results,
+        search_iteration=search_iteration,
+    )
+    
+    compressed_findings = llm.call(
+        system_prompt=COMPRESSION_SYSTEM_PROMPT,
+        user_prompt=user_prompt,
+        temperature=0.3,
+    )
+    
+    print(f"\n{'='*80}")
+    print(f"📝 COMPRESSION (After Iteration {search_iteration})")
+    print(f"{'='*80}\n")
+    print(f"Compressed {len(search_results)} search results into summary\n")
+    
+    return {
+        "messages": state["messages"],
+        "research_brief": research_brief,
+        "search_queries": state.get("search_queries", []),
+        "search_results": search_results,
+        "compressed_findings": compressed_findings,
+        "knowledge_gaps": state.get("knowledge_gaps", []),
+        "search_iteration": search_iteration,
+        "needs_more_context": state.get("needs_more_context", True),
+    }
+
+
 def reflection_node(state: ResearchState) -> ResearchState:
     """
-    Reflect on findings, identify knowledge gaps, and decide if more searches needed.
+    Reflect on compressed findings, identify knowledge gaps, and decide next steps.
 
     This node:
-    1. Compresses all search results into a clean summary
+    1. Analyzes the compressed findings against research brief
     2. Identifies knowledge gaps based on research brief
     3. Decides if more context is needed (max 5 iterations)
     4. If yes, generates follow-up queries to address gaps
     """
     research_brief = state.get("research_brief", "")
-    search_results = state.get("search_results", [])
+    compressed_findings = state.get("compressed_findings", "")
     search_iteration = state.get("search_iteration", 0)
 
     # Initialize OpenAI client
     llm = OpenAIClient()
 
-    # Build user prompt
+    # Build user prompt using compressed findings
     user_prompt = build_reflection_user_prompt(
         research_brief=research_brief,
-        search_results=search_results,
+        compressed_findings=compressed_findings,
         search_iteration=search_iteration,
     )
 
@@ -262,9 +310,6 @@ def reflection_node(state: ResearchState) -> ResearchState:
 
     print("💭 Thought Process:")
     print(f"{response.thought_process}\n")
-
-    print("📊 Compressed Findings:")
-    print(f"{response.compressed_findings}\n")
 
     if response.knowledge_gaps:
         print("🔍 Knowledge Gaps Identified:")
@@ -293,8 +338,8 @@ def reflection_node(state: ResearchState) -> ResearchState:
         "search_queries": response.follow_up_queries
         if response.needs_more_context
         else [],
-        "search_results": search_results,
-        "compressed_findings": response.compressed_findings,
+        "search_results": state["search_results"],
+        "compressed_findings": compressed_findings,  # Keep from compression_node
         "knowledge_gaps": response.knowledge_gaps,
         "search_iteration": search_iteration,
         "needs_more_context": response.needs_more_context and search_iteration < 5,

@@ -43,19 +43,30 @@ IMPORTANT GUIDELINES:
 Return your response as a JSON object with a "queries" field containing an array of query strings."""
 
 
+COMPRESSION_SYSTEM_PROMPT = """You are a research analyst summarizing gathered information.
+
+Create a comprehensive summary that:
+- Captures all important findings from the search results
+- Organizes information logically by themes or topics
+- Preserves specific details, statistics, and key facts
+- Is clear and well-structured
+- Maintains accuracy to the source material
+
+Be thorough and comprehensive in your summary."""
+
+
 DECIDE_SYSTEM_PROMPT = """You are a research analyst evaluating the completeness of gathered information.
 
 You have:
 1. A research brief outlining the research goals
-2. Search results from {num_iterations} round(s) of searching
+2. Compressed findings from {num_iterations} round(s) of searching
 
 Your tasks:
 1. Think through what you've learned so far and what's still missing
-2. Compress and distill all search results into a clean, comprehensive summary
-3. Identify any knowledge gaps - what's missing from the research brief requirements
-4. Decide if the current information is sufficient to answer the user's question
-5. If yes, set needs_more_context to false and leave follow_up_queries empty
-6. If no, generate ONLY the necessary follow-up queries to fill critical gaps
+2. Identify any knowledge gaps - what's missing from the research brief requirements
+3. Decide if the current information is sufficient to answer the user's question
+4. If yes, set needs_more_context to false and leave follow_up_queries empty
+5. If no, generate ONLY the necessary follow-up queries to fill critical gaps
 
 CRITICAL GUIDELINES FOR FOLLOW-UP QUERIES:
 - Only generate follow-up queries if there are genuine knowledge gaps that prevent answering the question
@@ -67,7 +78,6 @@ CRITICAL GUIDELINES FOR FOLLOW-UP QUERIES:
 
 Return your response as a JSON object with:
 - "thought_process": your reasoning about what's been learned, what's missing, and why you're deciding to continue or stop
-- "compressed_findings": string summary of all findings
 - "knowledge_gaps": array of identified gaps (can be empty if information is sufficient)
 - "needs_more_context": boolean - true ONLY if critical information is missing
 - "follow_up_queries": array of self-contained queries (empty if information is sufficient or if no more searches needed)

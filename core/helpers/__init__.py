@@ -3,6 +3,7 @@
 from .graph import create_graph
 from .nodes import (
     clarify_node,
+    compression_node,
     generate_queries_node,
     generate_report_node,
     reflection_node,
@@ -18,6 +19,7 @@ __all__ = [
     "research_brief_node",
     "generate_queries_node",
     "search_node",
+    "compression_node",
     "reflection_node",
     "generate_report_node",
 ]

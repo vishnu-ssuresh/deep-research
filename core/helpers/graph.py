@@ -4,6 +4,7 @@ from langgraph.graph import END, START, StateGraph
 
 from .nodes import (
     clarify_node,
+    compression_node,
     generate_queries_node,
     generate_report_node,
     reflection_node,
@@ -35,9 +36,10 @@ def create_graph():
         2. research_brief: Generate comprehensive research brief
         3. generate_queries: Create targeted search queries
         4. search: Execute searches using Exa API
-        5. reflect: Analyze results, identify gaps, decide next steps
-        6. [Conditional] Back to generate_queries OR proceed to generate_report
-        7. generate_report: Create final comprehensive markdown report
+        5. compress: Compress search results into comprehensive summary
+        6. reflect: Analyze compressed findings, identify gaps, decide next steps
+        7. [Conditional] Back to generate_queries OR proceed to generate_report
+        8. generate_report: Create final comprehensive markdown report
 
     The graph supports iterative research with up to 5 search iterations,
     refining queries based on identified knowledge gaps.
@@ -50,6 +52,7 @@ def create_graph():
     workflow.add_node("research_brief", research_brief_node)
     workflow.add_node("generate_queries", generate_queries_node)
     workflow.add_node("search", search_node)
+    workflow.add_node("compress", compression_node)
     workflow.add_node("reflect", reflection_node)
     workflow.add_node("generate_report", generate_report_node)
 
@@ -60,7 +63,8 @@ def create_graph():
     workflow.add_edge("clarify", "research_brief")
     workflow.add_edge("research_brief", "generate_queries")
     workflow.add_edge("generate_queries", "search")
-    workflow.add_edge("search", "reflect")
+    workflow.add_edge("search", "compress")
+    workflow.add_edge("compress", "reflect")
 
     # Add conditional edge from reflect
     # - If more context needed: loop back to generate_queries
