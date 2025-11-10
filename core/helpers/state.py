@@ -31,4 +31,3 @@ class ResearchState(TypedDict):
 
     # Whether more context/searches are needed
     needs_more_context: bool
-

@@ -14,7 +14,7 @@ class ExaClient:
     def __init__(self, api_key: str | None = None):
         """
         Initialize Exa client.
-        
+
         Args:
             api_key: Exa API key. If None, reads from EXA_API_KEY env var
         """
@@ -36,17 +36,17 @@ class ExaClient:
     ) -> list[dict[str, Any]]:
         """
         Search the web using Exa.
-        
+
         Args:
             query: Search query
             num_results: Number of results to return
             use_autoprompt: Whether to use Exa's autoprompt feature
             text: Whether to include page text. Can be bool or dict with max_characters
             highlights: Whether to include highlights. Can be bool or dict with options
-        
+
         Returns:
             List of search results with metadata
-        
+
         Raises:
             SearchServiceError: If the search fails
         """
@@ -88,4 +88,3 @@ class ExaClient:
 
         except Exception as e:
             raise SearchServiceError(f"Exa search failed: {str(e)}") from e
-

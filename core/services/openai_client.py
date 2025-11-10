@@ -18,7 +18,7 @@ class OpenAIClient:
     def __init__(self, api_key: str | None = None, model: str = "gpt-4o-mini"):
         """
         Initialize OpenAI client.
-        
+
         Args:
             api_key: OpenAI API key. If None, reads from OPENAI_API_KEY env var
             model: Default model to use for completions
@@ -42,17 +42,17 @@ class OpenAIClient:
     ) -> str | T:
         """
         Make a call to OpenAI API.
-        
+
         Args:
             system_prompt: System message for the LLM
             user_prompt: User message/query
             temperature: Sampling temperature (0-1)
             response_format: Optional Pydantic model for structured output
             model: Model to use (overrides default)
-        
+
         Returns:
             String response or Pydantic model instance if response_format provided
-        
+
         Raises:
             LLMServiceError: If the API call fails
         """
@@ -82,4 +82,3 @@ class OpenAIClient:
 
         except Exception as e:
             raise LLMServiceError(f"OpenAI API call failed: {str(e)}") from e
-

@@ -1,6 +1,5 @@
 """Prompts for the deep research agent."""
 
-
 CLARIFY_SYSTEM_PROMPT = """You are a research assistant helping to understand a user's research query.
 
 Your task is to generate 2-4 clarifying questions that will help you better understand:
@@ -84,4 +83,3 @@ The report should:
 - Address all aspects of the research brief
 
 Generate a professional, publication-ready report."""
-

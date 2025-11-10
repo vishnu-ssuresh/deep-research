@@ -22,7 +22,7 @@ from .state import ResearchState
 def clarify_node(state: ResearchState) -> ResearchState:
     """
     Ask clarifying questions about the user's query.
-    
+
     This node:
     1. Extracts the user's original query
     2. Uses LLM to generate 2-4 clarifying questions
@@ -49,17 +49,21 @@ def clarify_node(state: ResearchState) -> ResearchState:
     questions = response.questions
 
     # Format questions for display
-    questions_text = "\n".join(f"{i+1}. {q}" for i, q in enumerate(questions))
+    questions_text = "\n".join(f"{i + 1}. {q}" for i, q in enumerate(questions))
 
     # Add questions as AI message
-    messages.append(AIMessage(content=f"To better understand your research needs, I have a few questions:\n\n{questions_text}"))
+    messages.append(
+        AIMessage(
+            content=f"To better understand your research needs, I have a few questions:\n\n{questions_text}"
+        )
+    )
 
     # Get user answers (interactive)
     print(f"\n{messages[-1].content}\n")
 
     answers = []
     for i, question in enumerate(questions):
-        answer = input(f"Answer {i+1}: ").strip()
+        answer = input(f"Answer {i + 1}: ").strip()
         answers.append(f"Q: {question}\nA: {answer}")
 
     # Add answers as human message
@@ -72,7 +76,7 @@ def clarify_node(state: ResearchState) -> ResearchState:
 def research_brief_node(state: ResearchState) -> ResearchState:
     """
     Generate a research brief based on query and clarifications.
-    
+
     This node:
     1. Extracts the original query and clarifying Q&A
     2. Uses LLM to generate a comprehensive research brief
@@ -103,7 +107,7 @@ def research_brief_node(state: ResearchState) -> ResearchState:
 def generate_queries_node(state: ResearchState) -> ResearchState:
     """
     Generate search queries based on research brief.
-    
+
     This node:
     1. Reads the research brief
     2. Generates 3-5 targeted search queries
@@ -163,7 +167,7 @@ def generate_queries_node(state: ResearchState) -> ResearchState:
 def search_node(state: ResearchState) -> ResearchState:
     """
     Execute Exa searches and accumulate results.
-    
+
     This node:
     1. Takes search queries from state
     2. Executes searches using ExaClient
@@ -253,14 +257,14 @@ def reflection_node(state: ResearchState) -> ResearchState:
     )
 
     # Print reflection analysis
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print(f"🤔 AGENT THINKING (After Iteration {search_iteration})")
-    print(f"{'='*80}\n")
-    
-    print(f"💭 Thought Process:")
+    print(f"{'=' * 80}\n")
+
+    print("💭 Thought Process:")
     print(f"{response.thought_process}\n")
-    
-    print(f"📊 Compressed Findings:")
+
+    print("📊 Compressed Findings:")
     print(f"{response.compressed_findings}\n")
 
     if response.knowledge_gaps:
@@ -269,7 +273,11 @@ def reflection_node(state: ResearchState) -> ResearchState:
             print(f"  {i}. {gap}")
         print()
 
-    decision = "✅ Sufficient - Moving to report generation" if not response.needs_more_context else "🔄 Need more information"
+    decision = (
+        "✅ Sufficient - Moving to report generation"
+        if not response.needs_more_context
+        else "🔄 Need more information"
+    )
     print(f"🎯 Decision: {decision}\n")
 
     if response.needs_more_context and response.follow_up_queries:
@@ -277,13 +285,15 @@ def reflection_node(state: ResearchState) -> ResearchState:
         for i, query in enumerate(response.follow_up_queries, 1):
             print(f"  {i}. {query}")
         print()
-    
-    print(f"{'='*80}\n")
+
+    print(f"{'=' * 80}\n")
 
     return {
         "messages": state["messages"],
         "research_brief": research_brief,
-        "search_queries": response.follow_up_queries if response.needs_more_context else [],
+        "search_queries": response.follow_up_queries
+        if response.needs_more_context
+        else [],
         "search_results": search_results,
         "compressed_findings": response.compressed_findings,
         "knowledge_gaps": response.knowledge_gaps,
@@ -295,7 +305,7 @@ def reflection_node(state: ResearchState) -> ResearchState:
 def generate_report_node(state: ResearchState) -> ResearchState:
     """
     Generate final comprehensive markdown report with citations.
-    
+
     This node:
     1. Takes research brief and compressed findings
     2. Formats all search results for reference
@@ -346,4 +356,3 @@ def generate_report_node(state: ResearchState) -> ResearchState:
         "search_iteration": state.get("search_iteration", 0),
         "needs_more_context": False,  # Done with research
     }
-

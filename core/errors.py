@@ -19,10 +19,11 @@ class APIKeyError(DeepResearchError):
 
 class LLMServiceError(DeepResearchError):
     """Raised when LLM service call fails."""
+
     pass
 
 
 class SearchServiceError(DeepResearchError):
     """Raised when search service call fails."""
-    pass
 
+    pass

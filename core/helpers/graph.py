@@ -16,7 +16,7 @@ from .state import ResearchState
 def should_continue_searching(state: ResearchState) -> str:
     """
     Determine whether to continue searching or generate report.
-    
+
     Returns:
         - "generate_queries": If more context needed and under iteration limit
         - "generate_report": If research is complete or iteration limit reached
@@ -29,7 +29,7 @@ def should_continue_searching(state: ResearchState) -> str:
 def create_graph():
     """
     Create and compile the research agent graph.
-    
+
     Workflow:
         1. clarify: Ask clarifying questions to understand research needs
         2. research_brief: Generate comprehensive research brief
@@ -38,7 +38,7 @@ def create_graph():
         5. reflect: Analyze results, identify gaps, decide next steps
         6. [Conditional] Back to generate_queries OR proceed to generate_report
         7. generate_report: Create final comprehensive markdown report
-    
+
     The graph supports iterative research with up to 5 search iterations,
     refining queries based on identified knowledge gaps.
     """
@@ -71,7 +71,7 @@ def create_graph():
         {
             "generate_queries": "generate_queries",
             "generate_report": "generate_report",
-        }
+        },
     )
 
     # Add final edge to END
@@ -79,4 +79,3 @@ def create_graph():
 
     # Compile and return the graph
     return workflow.compile()
-

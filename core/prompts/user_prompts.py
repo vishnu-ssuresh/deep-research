@@ -5,7 +5,9 @@ from typing import Any
 
 def build_clarify_user_prompt(original_query: str) -> str:
     """Build user prompt for clarifying questions generation."""
-    return f"User's research query: {original_query}\n\nGenerate 2-4 clarifying questions."
+    return (
+        f"User's research query: {original_query}\n\nGenerate 2-4 clarifying questions."
+    )
 
 
 def build_research_brief_user_prompt(messages: list[Any]) -> str:
@@ -72,10 +74,10 @@ def build_reflection_user_prompt(
     for i, result in enumerate(search_results, 1):
         result_info = f"""
 Result {i}:
-- Query: {result.get('query', 'N/A')}
-- Title: {result.get('title', 'N/A')}
-- URL: {result.get('url', 'N/A')}
-- Content: {result.get('text', 'N/A')[:500]}...
+- Query: {result.get("query", "N/A")}
+- Title: {result.get("title", "N/A")}
+- URL: {result.get("url", "N/A")}
+- Content: {result.get("text", "N/A")[:500]}...
 """
         results_text.append(result_info)
 
@@ -106,10 +108,10 @@ def build_report_user_prompt(
     # Format search results as sources for citation
     sources_text = []
     for i, result in enumerate(search_results, 1):
-        source_entry = f"""[{i}] {result.get('title', 'Untitled')}
-    URL: {result.get('url', 'N/A')}
-    Query: {result.get('query', 'N/A')}
-    Content Preview: {result.get('text', 'N/A')[:300]}...
+        source_entry = f"""[{i}] {result.get("title", "Untitled")}
+    URL: {result.get("url", "N/A")}
+    Query: {result.get("query", "N/A")}
+    Content Preview: {result.get("text", "N/A")[:300]}...
 """
         sources_text.append(source_entry)
 
@@ -167,4 +169,3 @@ Important:
 - Be thorough and professional
 - Address all aspects of the research brief
 - Make it publication-ready"""
-

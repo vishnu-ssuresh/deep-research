@@ -21,4 +21,3 @@ __all__ = [
     "reflection_node",
     "generate_report_node",
 ]
-

@@ -29,4 +29,3 @@ __all__ = [
     "build_reflection_user_prompt",
     "build_report_user_prompt",
 ]
-

@@ -24,7 +24,7 @@ class SearchQueries(BaseModel):
 
 class DecisionOutput(BaseModel):
     """Model for decision node output."""
-    
+
     thought_process: str = Field(
         description="Reasoning about what's been learned and what's still needed"
     )
@@ -35,11 +35,8 @@ class DecisionOutput(BaseModel):
         description="Identified gaps in research",
         default_factory=list,
     )
-    needs_more_context: bool = Field(
-        description="Whether more searches are needed"
-    )
+    needs_more_context: bool = Field(description="Whether more searches are needed")
     follow_up_queries: list[str] = Field(
         description="Follow-up queries to address gaps",
         default_factory=list,
     )
-
