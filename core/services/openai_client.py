@@ -14,7 +14,7 @@ T = TypeVar("T", bound=BaseModel)
 
 class OpenAIClient:
     """Client for interacting with OpenAI API."""
-    
+
     def __init__(self, api_key: str | None = None, model: str = "gpt-4o-mini"):
         """
         Initialize OpenAI client.
@@ -28,10 +28,10 @@ class OpenAIClient:
             raise APIKeyError(
                 "OpenAI API key must be set in OPENAI_API_KEY environment variable"
             )
-        
+
         self.model = model
         self.client = OpenAI(api_key=self.api_key)
-    
+
     def call(
         self,
         system_prompt: str,
@@ -61,13 +61,13 @@ class OpenAIClient:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ]
-            
+
             kwargs = {
                 "model": model or self.model,
                 "messages": messages,
                 "temperature": temperature,
             }
-            
+
             # Handle structured output
             if response_format:
                 kwargs["response_format"] = {"type": "json_object"}
@@ -75,11 +75,11 @@ class OpenAIClient:
                 content = completion.choices[0].message.content
                 parsed_data = json.loads(content)
                 return response_format(**parsed_data)
-            
+
             # Regular string output
             completion = self.client.chat.completions.create(**kwargs)
             return completion.choices[0].message.content
-        
+
         except Exception as e:
             raise LLMServiceError(f"OpenAI API call failed: {str(e)}") from e
 

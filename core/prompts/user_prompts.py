@@ -17,9 +17,9 @@ def build_research_brief_user_prompt(messages: list[Any]) -> str:
             context_parts.append(f"USER: {msg.content}")
         elif msg.type == "ai":
             context_parts.append(f"ASSISTANT: {msg.content}")
-    
+
     context = "\n\n".join(context_parts)
-    
+
     return f"""Based on the following conversation, create a comprehensive research brief.
 
 {context}
@@ -48,7 +48,7 @@ Generate {num_queries} diverse, targeted search queries to gather comprehensive 
     else:
         # Follow-up queries
         gaps_text = "\n".join(f"- {gap}" for gap in (knowledge_gaps or []))
-        
+
         return f"""Research Brief:
 {research_brief}
 
@@ -78,9 +78,9 @@ Result {i}:
 - Content: {result.get('text', 'N/A')[:500]}...
 """
         results_text.append(result_info)
-    
+
     results_summary = "\n".join(results_text[:30])  # Limit to avoid token overflow
-    
+
     return f"""Research Brief:
 {research_brief}
 
@@ -112,9 +112,9 @@ def build_report_user_prompt(
     Content Preview: {result.get('text', 'N/A')[:300]}...
 """
         sources_text.append(source_entry)
-    
+
     sources_summary = "\n".join(sources_text[:50])  # Limit for token management
-    
+
     return f"""Original Research Query: {original_query}
 
 Research Brief:

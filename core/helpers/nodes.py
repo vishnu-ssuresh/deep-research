@@ -32,40 +32,40 @@ def clarify_node(state: ResearchState) -> ResearchState:
     # Extract the original query
     messages = state["messages"]
     original_query = messages[0].content if messages else ""
-    
+
     # Initialize OpenAI client
     llm = OpenAIClient()
-    
+
     # Generate clarifying questions
     user_prompt = build_clarify_user_prompt(original_query)
-    
+
     response = llm.call(
         system_prompt=CLARIFY_SYSTEM_PROMPT,
         user_prompt=user_prompt,
         temperature=0.7,
         response_format=ClarifyingQuestions,
     )
-    
+
     questions = response.questions
-    
+
     # Format questions for display
     questions_text = "\n".join(f"{i+1}. {q}" for i, q in enumerate(questions))
-    
+
     # Add questions as AI message
     messages.append(AIMessage(content=f"To better understand your research needs, I have a few questions:\n\n{questions_text}"))
-    
+
     # Get user answers (interactive)
     print(f"\n{messages[-1].content}\n")
-    
+
     answers = []
     for i, question in enumerate(questions):
         answer = input(f"Answer {i+1}: ").strip()
         answers.append(f"Q: {question}\nA: {answer}")
-    
+
     # Add answers as human message
     answers_text = "\n\n".join(answers)
     messages.append(HumanMessage(content=f"Here are my answers:\n\n{answers_text}"))
-    
+
     return {"messages": messages}
 
 
@@ -79,21 +79,21 @@ def research_brief_node(state: ResearchState) -> ResearchState:
     3. Stores the brief in state
     """
     messages = state["messages"]
-    
+
     # Initialize OpenAI client
     llm = OpenAIClient()
-    
+
     # Generate research brief
     user_prompt = build_research_brief_user_prompt(messages)
-    
+
     research_brief = llm.call(
         system_prompt=RESEARCH_BRIEF_SYSTEM_PROMPT,
         user_prompt=user_prompt,
         temperature=0.5,
     )
-    
+
     print(f"\n=== Research Brief ===\n{research_brief}\n")
-    
+
     return {
         "messages": messages,
         "research_brief": research_brief,
@@ -112,10 +112,10 @@ def generate_queries_node(state: ResearchState) -> ResearchState:
     """
     research_brief = state.get("research_brief", "")
     search_iteration = state.get("search_iteration", 0)
-    
+
     # Initialize OpenAI client
     llm = OpenAIClient()
-    
+
     # Determine if this is initial or follow-up queries
     if search_iteration == 0:
         iteration_context = ""
@@ -123,7 +123,7 @@ def generate_queries_node(state: ResearchState) -> ResearchState:
     else:
         iteration_context = f" (iteration {search_iteration + 1})"
         num_queries = 3
-    
+
     # Build user prompt
     user_prompt = build_generate_queries_user_prompt(
         research_brief=research_brief,
@@ -132,27 +132,27 @@ def generate_queries_node(state: ResearchState) -> ResearchState:
         compressed_findings=state.get("compressed_findings", ""),
         knowledge_gaps=state.get("knowledge_gaps", []),
     )
-    
+
     # Format the system prompt with context
     system_prompt = GENERATE_QUERIES_SYSTEM_PROMPT.format(
         iteration_context=iteration_context,
         num_queries=num_queries,
     )
-    
+
     response = llm.call(
         system_prompt=system_prompt,
         user_prompt=user_prompt,
         temperature=0.7,
         response_format=SearchQueries,
     )
-    
+
     queries = response.queries
-    
+
     print(f"\n=== Generated Search Queries (Iteration {search_iteration + 1}) ===")
     for i, query in enumerate(queries, 1):
         print(f"{i}. {query}")
     print()
-    
+
     return {
         "messages": state["messages"],
         "research_brief": research_brief,
@@ -173,20 +173,20 @@ def search_node(state: ResearchState) -> ResearchState:
     search_queries = state.get("search_queries", [])
     search_results = state.get("search_results", [])
     search_iteration = state.get("search_iteration", 0)
-    
+
     if not search_queries:
         print("Warning: No search queries found in state")
         return state
-    
+
     # Initialize Exa client
     exa = ExaClient()
-    
+
     print(f"\n=== Executing Searches (Iteration {search_iteration + 1}) ===")
-    
+
     # Execute each search query
     for i, query in enumerate(search_queries, 1):
         print(f"[{i}/{len(search_queries)}] Searching: {query}")
-        
+
         try:
             results = exa.call(
                 query=query,
@@ -194,21 +194,21 @@ def search_node(state: ResearchState) -> ResearchState:
                 use_autoprompt=True,
                 text={"max_characters": 2000},
             )
-            
+
             # Add query context to each result
             for result in results:
                 result["query"] = query
                 result["iteration"] = search_iteration + 1
-            
+
             search_results.extend(results)
             print(f"    ✓ Found {len(results)} results")
-            
+
         except Exception as e:
             print(f"    ✗ Search failed: {str(e)}")
             continue
-    
+
     print(f"\nTotal results accumulated: {len(search_results)}\n")
-    
+
     return {
         "messages": state["messages"],
         "research_brief": state.get("research_brief"),
@@ -231,45 +231,45 @@ def reflection_node(state: ResearchState) -> ResearchState:
     research_brief = state.get("research_brief", "")
     search_results = state.get("search_results", [])
     search_iteration = state.get("search_iteration", 0)
-    
+
     # Initialize OpenAI client
     llm = OpenAIClient()
-    
+
     # Build user prompt
     user_prompt = build_reflection_user_prompt(
         research_brief=research_brief,
         search_results=search_results,
         search_iteration=search_iteration,
     )
-    
+
     # Format system prompt with iteration info
     system_prompt = DECIDE_SYSTEM_PROMPT.format(num_iterations=search_iteration)
-    
+
     response = llm.call(
         system_prompt=system_prompt,
         user_prompt=user_prompt,
         temperature=0.5,
         response_format=DecisionOutput,
     )
-    
+
     # Print reflection analysis
     print(f"\n=== Reflection (After Iteration {search_iteration}) ===")
     print(f"\nCompressed Findings:\n{response.compressed_findings}\n")
-    
+
     if response.knowledge_gaps:
-        print(f"Knowledge Gaps Identified:")
+        print("Knowledge Gaps Identified:")
         for gap in response.knowledge_gaps:
             print(f"  - {gap}")
         print()
-    
+
     print(f"Continue Searching: {response.needs_more_context}")
-    
+
     if response.needs_more_context and response.follow_up_queries:
-        print(f"\nFollow-up Queries:")
+        print("\nFollow-up Queries:")
         for i, query in enumerate(response.follow_up_queries, 1):
             print(f"  {i}. {query}")
         print()
-    
+
     return {
         "messages": state["messages"],
         "research_brief": research_brief,
@@ -296,13 +296,13 @@ def generate_report_node(state: ResearchState) -> ResearchState:
     compressed_findings = state.get("compressed_findings", "")
     search_results = state.get("search_results", [])
     messages = state["messages"]
-    
+
     # Get original query for report title
     original_query = messages[0].content if messages else "Research Report"
-    
+
     # Initialize OpenAI client
     llm = OpenAIClient()
-    
+
     # Build user prompt
     user_prompt = build_report_user_prompt(
         original_query=original_query,
@@ -310,22 +310,22 @@ def generate_report_node(state: ResearchState) -> ResearchState:
         compressed_findings=compressed_findings,
         search_results=search_results,
     )
-    
+
     print("\n=== Generating Final Report ===")
     print("This may take a moment...\n")
-    
+
     report = llm.call(
         system_prompt=GENERATE_REPORT_SYSTEM_PROMPT,
         user_prompt=user_prompt,
         temperature=0.6,
         model="gpt-4o",  # Use more capable model for report generation
     )
-    
+
     # Add report as assistant message
     messages.append(AIMessage(content=report))
-    
+
     print("✓ Report generation complete!\n")
-    
+
     return {
         "messages": messages,
         "research_brief": research_brief,

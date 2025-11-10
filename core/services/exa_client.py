@@ -10,7 +10,7 @@ from ..errors import APIKeyError, SearchServiceError
 
 class ExaClient:
     """Client for interacting with Exa search API."""
-    
+
     def __init__(self, api_key: str | None = None):
         """
         Initialize Exa client.
@@ -23,9 +23,9 @@ class ExaClient:
             raise APIKeyError(
                 "Exa API key must be set in EXA_API_KEY environment variable"
             )
-        
+
         self.client = Exa(api_key=self.api_key)
-    
+
     def call(
         self,
         query: str,
@@ -57,20 +57,20 @@ class ExaClient:
                 "num_results": num_results,
                 "use_autoprompt": use_autoprompt,
             }
-            
+
             # Add text options
             if isinstance(text, dict):
                 search_params["text"] = text
             elif text:
                 search_params["text"] = {"max_characters": 2000}
-            
+
             # Add highlight options
             if highlights:
                 search_params["highlights"] = highlights
-            
+
             # Execute search
             results = self.client.search_and_contents(**search_params)
-            
+
             # Format results
             formatted_results = []
             for result in results.results:
@@ -83,9 +83,9 @@ class ExaClient:
                     "author": getattr(result, "author", None),
                 }
                 formatted_results.append(formatted_result)
-            
+
             return formatted_results
-        
+
         except Exception as e:
             raise SearchServiceError(f"Exa search failed: {str(e)}") from e
 
