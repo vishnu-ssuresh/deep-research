@@ -55,7 +55,7 @@ def create_graph():
 
     # Set entry point
     workflow.add_edge(START, "clarify")
-    
+
     # Add linear edges for main flow
     workflow.add_edge("clarify", "research_brief")
     workflow.add_edge("research_brief", "generate_queries")

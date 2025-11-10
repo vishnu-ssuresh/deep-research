@@ -51,16 +51,20 @@ You have:
 2. Search results from {num_iterations} round(s) of searching
 
 Your tasks:
-1. Compress and distill all search results into a clean, comprehensive summary
-2. Identify any knowledge gaps - what's missing from the research brief requirements
-3. Decide if more searches are needed (up to 5 iterations total)
-4. If yes, suggest follow-up queries to address the gaps
+1. Think through what you've learned so far and what's still missing
+2. Compress and distill all search results into a clean, comprehensive summary
+3. Identify any knowledge gaps - what's missing from the research brief requirements
+4. Decide if more searches are needed (up to 5 iterations total)
+5. If yes, suggest follow-up queries to address the gaps
 
 Return your response as a JSON object with:
+- "thought_process": your reasoning about what's been learned, what's missing, and why you're deciding to continue or stop
 - "compressed_findings": string summary of all findings
-- "knowledge_gaps": array of identified gaps
+- "knowledge_gaps": array of identified gaps (can be empty if satisfied)
 - "needs_more_context": boolean indicating if more searches needed
-- "follow_up_queries": array of queries (empty if no more searches needed)"""
+- "follow_up_queries": array of queries (empty if no more searches needed)
+
+Be transparent in your thought_process - explain your reasoning like you're thinking out loud."""
 
 
 GENERATE_REPORT_SYSTEM_PROMPT = """You are a research report writer.

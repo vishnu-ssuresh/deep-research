@@ -24,7 +24,10 @@ class SearchQueries(BaseModel):
 
 class DecisionOutput(BaseModel):
     """Model for decision node output."""
-
+    
+    thought_process: str = Field(
+        description="Reasoning about what's been learned and what's still needed"
+    )
     compressed_findings: str = Field(
         description="Compressed summary of all search results"
     )

@@ -253,22 +253,32 @@ def reflection_node(state: ResearchState) -> ResearchState:
     )
 
     # Print reflection analysis
-    print(f"\n=== Reflection (After Iteration {search_iteration}) ===")
-    print(f"\nCompressed Findings:\n{response.compressed_findings}\n")
+    print(f"\n{'='*80}")
+    print(f"🤔 AGENT THINKING (After Iteration {search_iteration})")
+    print(f"{'='*80}\n")
+    
+    print(f"💭 Thought Process:")
+    print(f"{response.thought_process}\n")
+    
+    print(f"📊 Compressed Findings:")
+    print(f"{response.compressed_findings}\n")
 
     if response.knowledge_gaps:
-        print("Knowledge Gaps Identified:")
-        for gap in response.knowledge_gaps:
-            print(f"  - {gap}")
+        print("🔍 Knowledge Gaps Identified:")
+        for i, gap in enumerate(response.knowledge_gaps, 1):
+            print(f"  {i}. {gap}")
         print()
 
-    print(f"Continue Searching: {response.needs_more_context}")
+    decision = "✅ Sufficient - Moving to report generation" if not response.needs_more_context else "🔄 Need more information"
+    print(f"🎯 Decision: {decision}\n")
 
     if response.needs_more_context and response.follow_up_queries:
-        print("\nFollow-up Queries:")
+        print("🔎 Follow-up Search Queries:")
         for i, query in enumerate(response.follow_up_queries, 1):
             print(f"  {i}. {query}")
         print()
+    
+    print(f"{'='*80}\n")
 
     return {
         "messages": state["messages"],
