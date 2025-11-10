@@ -1,6 +1,6 @@
 """LangGraph workflow definition for the deep research agent."""
 
-from langgraph.graph import END, StateGraph
+from langgraph.graph import END, START, StateGraph
 
 from .nodes import (
     clarify_node,
@@ -54,7 +54,7 @@ def create_graph():
     workflow.add_node("generate_report", generate_report_node)
 
     # Set entry point
-    workflow.set_entry_point("clarify")
+    workflow.add_edge(START, "clarify")
     
     # Add linear edges for main flow
     workflow.add_edge("clarify", "research_brief")
