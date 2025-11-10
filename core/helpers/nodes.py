@@ -273,6 +273,7 @@ def reflection_node(state: ResearchState) -> ResearchState:
     return {
         "messages": state["messages"],
         "research_brief": research_brief,
+        "search_queries": response.follow_up_queries if response.needs_more_context else [],
         "search_results": search_results,
         "compressed_findings": response.compressed_findings,
         "knowledge_gaps": response.knowledge_gaps,
