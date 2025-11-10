@@ -8,7 +8,7 @@ from ..prompts import (
     GENERATE_QUERIES_SYSTEM_PROMPT,
     RESEARCH_BRIEF_SYSTEM_PROMPT,
 )
-from ..services import OpenAIClient
+from ..services import ExaClient, OpenAIClient
 from .state import ResearchState
 
 
@@ -187,9 +187,61 @@ Generate {num_queries} follow-up search queries to address the knowledge gaps.""
 
 
 def search_node(state: ResearchState) -> ResearchState:
-    """Execute Exa searches and accumulate results."""
-    # TODO: Implement
-    pass
+    """
+    Execute Exa searches and accumulate results.
+    
+    This node:
+    1. Takes search queries from state
+    2. Executes searches using ExaClient
+    3. Accumulates results in state
+    4. Increments search iteration counter
+    """
+    search_queries = state.get("search_queries", [])
+    search_results = state.get("search_results", [])
+    search_iteration = state.get("search_iteration", 0)
+    
+    if not search_queries:
+        print("Warning: No search queries found in state")
+        return state
+    
+    # Initialize Exa client
+    exa = ExaClient()
+    
+    print(f"\n=== Executing Searches (Iteration {search_iteration + 1}) ===")
+    
+    # Execute each search query
+    for i, query in enumerate(search_queries, 1):
+        print(f"[{i}/{len(search_queries)}] Searching: {query}")
+        
+        try:
+            results = exa.call(
+                query=query,
+                num_results=5,
+                use_autoprompt=True,
+                text={"max_characters": 2000},
+            )
+            
+            # Add query context to each result
+            for result in results:
+                result["query"] = query
+                result["iteration"] = search_iteration + 1
+            
+            search_results.extend(results)
+            print(f"    ✓ Found {len(results)} results")
+            
+        except Exception as e:
+            print(f"    ✗ Search failed: {str(e)}")
+            continue
+    
+    print(f"\nTotal results accumulated: {len(search_results)}\n")
+    
+    return {
+        "messages": state["messages"],
+        "research_brief": state.get("research_brief"),
+        "search_queries": search_queries,
+        "search_results": search_results,
+        "search_iteration": search_iteration + 1,
+    }
 
 
 def decide_node(state: ResearchState) -> ResearchState:
