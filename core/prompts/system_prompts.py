@@ -34,11 +34,11 @@ GENERATE_QUERIES_SYSTEM_PROMPT = """You are a search query expert.
 
 Based on the research brief{iteration_context}, generate {num_queries} targeted search queries.
 
-The queries should:
-- Cover different aspects of the research topic
-- Use effective search terms and phrases
-- Be specific enough to find relevant results
-- Avoid redundancy with each other
+IMPORTANT GUIDELINES:
+- Each query should focus on ONE specific aspect of the research topic
+- Don't generate multiple similar queries
+- Make each query self-contained with necessary context for web search
+- Use effective search terms and phrases that will return relevant results
 
 Return your response as a JSON object with a "queries" field containing an array of query strings."""
 
@@ -53,15 +53,24 @@ Your tasks:
 1. Think through what you've learned so far and what's still missing
 2. Compress and distill all search results into a clean, comprehensive summary
 3. Identify any knowledge gaps - what's missing from the research brief requirements
-4. Decide if more searches are needed (up to 5 iterations total)
-5. If yes, suggest follow-up queries to address the gaps
+4. Decide if the current information is sufficient to answer the user's question
+5. If yes, set needs_more_context to false and leave follow_up_queries empty
+6. If no, generate ONLY the necessary follow-up queries to fill critical gaps
+
+CRITICAL GUIDELINES FOR FOLLOW-UP QUERIES:
+- Only generate follow-up queries if there are genuine knowledge gaps that prevent answering the question
+- If the provided summaries are sufficient to answer the user's question, DON'T generate follow-up queries
+- Each follow-up query should address ONE specific knowledge gap
+- Don't generate multiple similar queries
+- Make each query self-contained and include necessary context for web search
+- Avoid redundant queries that would return similar information
 
 Return your response as a JSON object with:
 - "thought_process": your reasoning about what's been learned, what's missing, and why you're deciding to continue or stop
 - "compressed_findings": string summary of all findings
-- "knowledge_gaps": array of identified gaps (can be empty if satisfied)
-- "needs_more_context": boolean indicating if more searches needed
-- "follow_up_queries": array of queries (empty if no more searches needed)
+- "knowledge_gaps": array of identified gaps (can be empty if information is sufficient)
+- "needs_more_context": boolean - true ONLY if critical information is missing
+- "follow_up_queries": array of self-contained queries (empty if information is sufficient or if no more searches needed)
 
 Be transparent in your thought_process - explain your reasoning like you're thinking out loud."""
 

@@ -46,7 +46,12 @@ def build_generate_queries_user_prompt(
         return f"""Research Brief:
 {research_brief}
 
-Generate {num_queries} diverse, targeted search queries to gather comprehensive information for this research."""
+Generate {num_queries} diverse, targeted search queries to gather comprehensive information for this research.
+
+Remember:
+- Each query should focus on ONE specific aspect
+- Avoid generating similar queries
+- Make queries self-contained with necessary context"""
     else:
         # Follow-up queries
         gaps_text = "\n".join(f"- {gap}" for gap in (knowledge_gaps or []))
@@ -60,7 +65,13 @@ Current Findings Summary:
 Knowledge Gaps:
 {gaps_text}
 
-Generate {num_queries} follow-up search queries to address the knowledge gaps."""
+Generate up to {num_queries} follow-up search queries ONLY if needed to address critical knowledge gaps.
+
+Remember:
+- Each query should address ONE specific gap
+- Don't generate similar queries
+- Make queries self-contained with necessary context
+- If the current findings are sufficient, generate fewer queries or none"""
 
 
 def build_reflection_user_prompt(
@@ -91,11 +102,20 @@ Search Results from {search_iteration} iteration(s):
 
 Total results collected: {len(search_results)}
 
-Analyze these results and:
-1. Create a compressed summary of all findings
-2. Identify any knowledge gaps relative to the research brief
-3. Decide if more searches are needed (we're on iteration {search_iteration} of max 5)
-4. If more searches needed, suggest 3-5 follow-up queries to address gaps"""
+Analyze these results carefully:
+
+1. Think through what you've learned and whether it's sufficient to answer the user's question
+2. Create a compressed summary of all findings
+3. Identify any CRITICAL knowledge gaps (not minor details, but essential information needed)
+4. Decide if the current information is sufficient to generate a comprehensive report
+5. ONLY generate follow-up queries if there are critical gaps that prevent answering the question
+
+Remember:
+- If the summaries are sufficient to answer the user's question, set needs_more_context to false and leave follow_up_queries empty
+- Each follow-up query should focus on ONE specific knowledge gap
+- Don't generate similar queries
+- Make queries self-contained with necessary context for web search
+- We're on iteration {search_iteration} of max 5, so be judicious about continuing"""
 
 
 def build_report_user_prompt(
