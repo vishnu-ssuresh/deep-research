@@ -156,12 +156,21 @@ Available Sources (MUST be cited in markdown format):
 {sources_summary}
 
 CRITICAL INSTRUCTIONS:
-- Answer the user's question comprehensively using the summaries and sources
+- Answer the user's question comprehensively and in-depth using the summaries and sources
 - Use markdown formatting for structure (headings, lists, bold, etc.)
 - Cite sources naturally throughout using markdown: [Source Title](URL)
 - Every claim should be backed by a source citation
 - Organize information logically - use whatever structure makes sense for this topic
-- Be thorough but readable
-- Provide insights and analysis, not just facts
+- Be thorough and detailed - each major section should be 3-5 paragraphs with specific examples
+- Include concrete details: statistics, dates, specific achievements, quotes, and examples
+- Provide deep insights and analysis, not just surface-level facts
+- Elaborate on key points with context and explanation
+- Connect ideas and show relationships between different findings
 
-DO NOT mention that you are the final step of a research process. Write naturally as if you're directly answering the user's question with your expertise."""
+DEPTH REQUIREMENTS:
+- Don't just list facts - explain their significance and context
+- Include specific numbers, dates, and concrete examples when possible
+- Expand on important points with multiple supporting details
+- Provide nuanced analysis that demonstrates deep understanding
+
+DO NOT mention that you are the final step of a research process. Write naturally as if you're an expert providing a comprehensive, detailed explanation."""
