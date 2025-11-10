@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage
 
-from core.graph import create_graph
+from core.helpers import create_graph
 
 
 def main():
