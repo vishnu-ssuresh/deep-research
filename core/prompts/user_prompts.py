@@ -102,7 +102,7 @@ Search Results from {search_iteration} iteration(s):
 
 Total results collected: {len(search_results)}
 
-Create a comprehensive, well-organized summary of all the findings from these search results. 
+Create a comprehensive, well-organized summary of all the findings from these search results.
 Include all important information, key facts, statistics, and insights.
 Organize the information logically by themes or topics."""
 

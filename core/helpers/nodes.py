@@ -226,7 +226,7 @@ def search_node(state: ResearchState) -> ResearchState:
 def compression_node(state: ResearchState) -> ResearchState:
     """
     Compress all search results into a clean, comprehensive summary.
-    
+
     This node:
     1. Takes all accumulated search results
     2. Distills them into a clean, comprehensive summary
@@ -235,28 +235,28 @@ def compression_node(state: ResearchState) -> ResearchState:
     research_brief = state.get("research_brief", "")
     search_results = state.get("search_results", [])
     search_iteration = state.get("search_iteration", 0)
-    
+
     # Initialize OpenAI client
     llm = OpenAIClient()
-    
+
     # Build user prompt
     user_prompt = build_compression_user_prompt(
         research_brief=research_brief,
         search_results=search_results,
         search_iteration=search_iteration,
     )
-    
+
     compressed_findings = llm.call(
         system_prompt=COMPRESSION_SYSTEM_PROMPT,
         user_prompt=user_prompt,
         temperature=0.3,
     )
-    
-    print(f"\n{'='*80}")
+
+    print(f"\n{'=' * 80}")
     print(f"📝 COMPRESSION (After Iteration {search_iteration})")
-    print(f"{'='*80}\n")
+    print(f"{'=' * 80}\n")
     print(f"Compressed {len(search_results)} search results into summary\n")
-    
+
     return {
         "messages": state["messages"],
         "research_brief": research_brief,
