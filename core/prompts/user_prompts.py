@@ -128,64 +128,40 @@ def build_report_user_prompt(
     # Format search results as sources for citation
     sources_text = []
     for i, result in enumerate(search_results, 1):
-        source_entry = f"""[{i}] {result.get("title", "Untitled")}
-    URL: {result.get("url", "N/A")}
-    Query: {result.get("query", "N/A")}
-    Content Preview: {result.get("text", "N/A")[:300]}...
+        title = result.get("title", "Untitled")
+        url = result.get("url", "N/A")
+        content = result.get("text", "N/A")[:500]
+
+        source_entry = f"""Source {i}:
+Title: {title}
+URL: {url}
+Content: {content}...
 """
         sources_text.append(source_entry)
 
     sources_summary = "\n".join(sources_text[:50])  # Limit for token management
 
-    return f"""Original Research Query: {original_query}
+    return f"""Generate a high-quality answer to the user's question based on the provided summaries.
 
-Research Brief:
+User's Research Question:
+{original_query}
+
+Research Context:
 {research_brief}
 
-Compressed Findings from {len(search_results)} sources:
+Summaries from {len(search_results)} sources:
 {compressed_findings}
 
-Available Sources for Citation:
+Available Sources (MUST be cited in markdown format):
 {sources_summary}
 
-Create a comprehensive deep research report with the following structure:
+CRITICAL INSTRUCTIONS:
+- Answer the user's question comprehensively using the summaries and sources
+- Use markdown formatting for structure (headings, lists, bold, etc.)
+- Cite sources naturally throughout using markdown: [Source Title](URL)
+- Every claim should be backed by a source citation
+- Organize information logically - use whatever structure makes sense for this topic
+- Be thorough but readable
+- Provide insights and analysis, not just facts
 
-# [Research Topic Title]
-
-## Executive Summary
-Brief overview of key findings (2-3 paragraphs)
-
-## Introduction
-- Background and context
-- Research objectives
-- Scope of investigation
-
-## Key Findings
-Organized by themes/topics with clear subheadings
-- Include specific data, facts, and insights
-- Cite sources using markdown format: [Title](URL)
-
-## Detailed Analysis
-Deep dive into the findings with:
-- Multiple sections based on research brief topics
-- Evidence-based insights
-- Connections between different findings
-- Citations throughout
-
-## Implications
-What do these findings mean?
-- Practical implications
-- Future considerations
-
-## Conclusion
-Summary and final thoughts
-
-## Sources
-List all cited sources with full URLs
-
-Important:
-- Use markdown formatting (headers, lists, bold, etc.)
-- Cite sources inline as [Source Title](URL)
-- Be thorough and professional
-- Address all aspects of the research brief
-- Make it publication-ready"""
+DO NOT mention that you are the final step of a research process. Write naturally as if you're directly answering the user's question with your expertise."""
