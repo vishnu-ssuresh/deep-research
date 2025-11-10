@@ -3,7 +3,7 @@
 from langchain_core.messages import AIMessage, HumanMessage
 
 from ..models import ClarifyingQuestions
-from ..prompts import CLARIFY_SYSTEM_PROMPT
+from ..prompts import CLARIFY_SYSTEM_PROMPT, RESEARCH_BRIEF_SYSTEM_PROMPT
 from ..services import OpenAIClient
 from .state import ResearchState
 
@@ -59,9 +59,52 @@ def clarify_node(state: ResearchState) -> ResearchState:
 
 
 def research_brief_node(state: ResearchState) -> ResearchState:
-    """Generate a research brief based on query and clarifications."""
-    # TODO: Implement
-    pass
+    """
+    Generate a research brief based on query and clarifications.
+    
+    This node:
+    1. Extracts the original query and clarifying Q&A
+    2. Uses LLM to generate a comprehensive research brief
+    3. Stores the brief in state
+    """
+    messages = state["messages"]
+    
+    # Build context from all messages
+    context_parts = []
+    for msg in messages:
+        if msg.type == "human":
+            context_parts.append(f"USER: {msg.content}")
+        elif msg.type == "ai":
+            context_parts.append(f"ASSISTANT: {msg.content}")
+    
+    context = "\n\n".join(context_parts)
+    
+    # Initialize OpenAI client
+    llm = OpenAIClient()
+    
+    # Generate research brief
+    user_prompt = f"""Based on the following conversation, create a comprehensive research brief.
+
+{context}
+
+Create a research brief that clearly outlines:
+1. Research objective - what we're trying to find out
+2. Key topics and subtopics to investigate
+3. Expected scope and depth
+4. Any specific angles or perspectives to focus on"""
+    
+    research_brief = llm.call(
+        system_prompt=RESEARCH_BRIEF_SYSTEM_PROMPT,
+        user_prompt=user_prompt,
+        temperature=0.5,
+    )
+    
+    print(f"\n=== Research Brief ===\n{research_brief}\n")
+    
+    return {
+        "messages": messages,
+        "research_brief": research_brief,
+    }
 
 
 def generate_queries_node(state: ResearchState) -> ResearchState:
