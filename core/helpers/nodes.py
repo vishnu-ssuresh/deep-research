@@ -7,6 +7,7 @@ from ..prompts import (
     CLARIFY_SYSTEM_PROMPT,
     DECIDE_SYSTEM_PROMPT,
     GENERATE_QUERIES_SYSTEM_PROMPT,
+    GENERATE_REPORT_SYSTEM_PROMPT,
     RESEARCH_BRIEF_SYSTEM_PROMPT,
 )
 from ..services import ExaClient, OpenAIClient
@@ -332,7 +333,115 @@ Analyze these results and:
 
 
 def generate_report_node(state: ResearchState) -> ResearchState:
-    """Generate final markdown report with citations."""
-    # TODO: Implement
-    pass
+    """
+    Generate final comprehensive markdown report with citations.
+    
+    This node:
+    1. Takes research brief and compressed findings
+    2. Formats all search results for reference
+    3. Generates structured markdown report with citations
+    4. Adds report as assistant message
+    """
+    research_brief = state.get("research_brief", "")
+    compressed_findings = state.get("compressed_findings", "")
+    search_results = state.get("search_results", [])
+    messages = state["messages"]
+    
+    # Get original query for report title
+    original_query = messages[0].content if messages else "Research Report"
+    
+    # Initialize OpenAI client
+    llm = OpenAIClient()
+    
+    # Format search results as sources for citation
+    sources_text = []
+    for i, result in enumerate(search_results, 1):
+        source_entry = f"""[{i}] {result.get('title', 'Untitled')}
+    URL: {result.get('url', 'N/A')}
+    Query: {result.get('query', 'N/A')}
+    Content Preview: {result.get('text', 'N/A')[:300]}...
+"""
+        sources_text.append(source_entry)
+    
+    sources_summary = "\n".join(sources_text[:50])  # Limit for token management
+    
+    # Build user prompt
+    user_prompt = f"""Original Research Query: {original_query}
+
+Research Brief:
+{research_brief}
+
+Compressed Findings from {len(search_results)} sources:
+{compressed_findings}
+
+Available Sources for Citation:
+{sources_summary}
+
+Create a comprehensive deep research report with the following structure:
+
+# [Research Topic Title]
+
+## Executive Summary
+Brief overview of key findings (2-3 paragraphs)
+
+## Introduction
+- Background and context
+- Research objectives
+- Scope of investigation
+
+## Key Findings
+Organized by themes/topics with clear subheadings
+- Include specific data, facts, and insights
+- Cite sources using markdown format: [Title](URL)
+
+## Detailed Analysis
+Deep dive into the findings with:
+- Multiple sections based on research brief topics
+- Evidence-based insights
+- Connections between different findings
+- Citations throughout
+
+## Implications
+What do these findings mean?
+- Practical implications
+- Future considerations
+
+## Conclusion
+Summary and final thoughts
+
+## Sources
+List all cited sources with full URLs
+
+Important:
+- Use markdown formatting (headers, lists, bold, etc.)
+- Cite sources inline as [Source Title](URL)
+- Be thorough and professional
+- Address all aspects of the research brief
+- Make it publication-ready"""
+    
+    print("\n=== Generating Final Report ===")
+    print("This may take a moment...\n")
+    
+    report = llm.call(
+        system_prompt=GENERATE_REPORT_SYSTEM_PROMPT,
+        user_prompt=user_prompt,
+        temperature=0.6,
+        model="gpt-4o",  # Use more capable model for report generation
+    )
+    
+    # Add report as assistant message
+    messages.append(AIMessage(content=report))
+    
+    print("✓ Report generation complete!\n")
+    
+    return {
+        "messages": messages,
+        "research_brief": research_brief,
+        "compressed_findings": compressed_findings,
+        "search_results": search_results,
+        "search_queries": state.get("search_queries", []),
+        "knowledge_gaps": state.get("knowledge_gaps", []),
+        "search_iteration": state.get("search_iteration", 0),
+        "needs_more_context": False,  # Done with research
+    }
 
