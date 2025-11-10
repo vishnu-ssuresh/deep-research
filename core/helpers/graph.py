@@ -4,9 +4,9 @@ from langgraph.graph import END, StateGraph
 
 from .nodes import (
     clarify_node,
-    decide_node,
     generate_queries_node,
     generate_report_node,
+    reflection_node,
     research_brief_node,
     search_node,
 )
@@ -31,7 +31,7 @@ def create_graph():
     workflow.add_node("research_brief", research_brief_node)
     workflow.add_node("generate_queries", generate_queries_node)
     workflow.add_node("search", search_node)
-    workflow.add_node("decide", decide_node)
+    workflow.add_node("reflect", reflection_node)
     workflow.add_node("generate_report", generate_report_node)
 
     # Add edges
@@ -39,11 +39,11 @@ def create_graph():
     workflow.add_edge("clarify", "research_brief")
     workflow.add_edge("research_brief", "generate_queries")
     workflow.add_edge("generate_queries", "search")
-    workflow.add_edge("search", "decide")
+    workflow.add_edge("search", "reflect")
 
     # Conditional edge: continue searching or generate report
     workflow.add_conditional_edges(
-        "decide",
+        "reflect",
         should_continue_searching,
         {
             "search": "search",

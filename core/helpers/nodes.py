@@ -2,9 +2,10 @@
 
 from langchain_core.messages import AIMessage, HumanMessage
 
-from ..models import ClarifyingQuestions, SearchQueries
+from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries
 from ..prompts import (
     CLARIFY_SYSTEM_PROMPT,
+    DECIDE_SYSTEM_PROMPT,
     GENERATE_QUERIES_SYSTEM_PROMPT,
     RESEARCH_BRIEF_SYSTEM_PROMPT,
 )
@@ -244,18 +245,90 @@ def search_node(state: ResearchState) -> ResearchState:
     }
 
 
-def decide_node(state: ResearchState) -> ResearchState:
+def reflection_node(state: ResearchState) -> ResearchState:
     """
-    Compress findings, identify knowledge gaps, and decide if more searches needed.
+    Reflect on findings, identify knowledge gaps, and decide if more searches needed.
 
     This node:
     1. Compresses all search results into a clean summary
-    2. Identifies knowledge gaps
-    3. Decides if more context is needed
-    4. If yes, generates follow-up queries
+    2. Identifies knowledge gaps based on research brief
+    3. Decides if more context is needed (max 5 iterations)
+    4. If yes, generates follow-up queries to address gaps
     """
-    # TODO: Implement
-    pass
+    research_brief = state.get("research_brief", "")
+    search_results = state.get("search_results", [])
+    search_iteration = state.get("search_iteration", 0)
+    
+    # Initialize OpenAI client
+    llm = OpenAIClient()
+    
+    # Format search results for analysis
+    results_text = []
+    for i, result in enumerate(search_results, 1):
+        result_info = f"""
+Result {i}:
+- Query: {result.get('query', 'N/A')}
+- Title: {result.get('title', 'N/A')}
+- URL: {result.get('url', 'N/A')}
+- Content: {result.get('text', 'N/A')[:500]}...
+"""
+        results_text.append(result_info)
+    
+    results_summary = "\n".join(results_text[:30])  # Limit to avoid token overflow
+    
+    # Build user prompt
+    user_prompt = f"""Research Brief:
+{research_brief}
+
+Search Results from {search_iteration} iteration(s):
+{results_summary}
+
+Total results collected: {len(search_results)}
+
+Analyze these results and:
+1. Create a compressed summary of all findings
+2. Identify any knowledge gaps relative to the research brief
+3. Decide if more searches are needed (we're on iteration {search_iteration} of max 5)
+4. If more searches needed, suggest 3-5 follow-up queries to address gaps"""
+    
+    # Format system prompt with iteration info
+    system_prompt = DECIDE_SYSTEM_PROMPT.format(num_iterations=search_iteration)
+    
+    response = llm.call(
+        system_prompt=system_prompt,
+        user_prompt=user_prompt,
+        temperature=0.5,
+        response_format=DecisionOutput,
+    )
+    
+    # Print reflection analysis
+    print(f"\n=== Reflection (After Iteration {search_iteration}) ===")
+    print(f"\nCompressed Findings:\n{response.compressed_findings}\n")
+    
+    if response.knowledge_gaps:
+        print(f"Knowledge Gaps Identified:")
+        for gap in response.knowledge_gaps:
+            print(f"  - {gap}")
+        print()
+    
+    print(f"Continue Searching: {response.needs_more_context}")
+    
+    if response.needs_more_context and response.follow_up_queries:
+        print(f"\nFollow-up Queries:")
+        for i, query in enumerate(response.follow_up_queries, 1):
+            print(f"  {i}. {query}")
+        print()
+    
+    return {
+        "messages": state["messages"],
+        "research_brief": research_brief,
+        "search_queries": response.follow_up_queries if response.needs_more_context else [],
+        "search_results": search_results,
+        "compressed_findings": response.compressed_findings,
+        "knowledge_gaps": response.knowledge_gaps,
+        "search_iteration": search_iteration,
+        "needs_more_context": response.needs_more_context and search_iteration < 5,
+    }
 
 
 def generate_report_node(state: ResearchState) -> ResearchState:
