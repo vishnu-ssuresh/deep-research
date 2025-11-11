@@ -1,4 +1,4 @@
-"""Helper modules for the deep research agent."""
+"""Agent modules for the deep research agent."""
 
 from .graph import create_graph
 from .nodes import (
