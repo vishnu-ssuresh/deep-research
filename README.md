@@ -2,7 +2,7 @@
 
 ## Overview
 
-A LangGraph-based research agent that conducts research by iteratively searching, compressing findings, and generating a detailed report. The agent is orchestrated through LangGraph, using OpenAI's LLMs and Exa's web search.
+A LangGraph-based research agent that conducts comprehensive research by iteratively searching, compressing findings, and generating a detailed report. The agent is orchestrated through LangGraph, using OpenAI's LLMs and Exa for web search.
 
 ### Example Report
 
@@ -20,7 +20,7 @@ The agent follows a cyclic process:
 
 4. **Parallel Data Collection**: 
    - **Web Search**: Uses Exa's search API to find and retrieve relevant web content.
-   - **MCP Integration**: Uses Langchain's MCP adapters to connect with external MCP servers.
+   - **MCP Integration**: Uses LangChain's MCP adapters to connect with external MCP servers.
 
 5. **Compression**: Distills accumulated search results and findings, allowing the agent to synthesize information without running into context length limits.
 
@@ -102,9 +102,11 @@ ruff format .
 
 The project includes Model Context Protocol (MCP) support for integrating external tools and data sources.
 
-**To enable real MCP servers**:
+**To enable MCP servers**:
 
-Edit `core/agents/nodes.py` in the `mcp_tool_node()` function:
+1. Edit the `mcp_tool_node()` function in `core/agents/nodes.py`.
+2. Uncomment the code block and configure your MCP server connections.
+3. Follow [LangChain MCP documentation](https://docs.langchain.com/oss/python/langchain/mcp) for setup details.
 
 ## Project Structure
 
