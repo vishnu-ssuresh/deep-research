@@ -138,41 +138,41 @@ START → clarify → research_brief → generate_queries
 
 ```
 deep-research/
-├── agent.py                    # Main entry point
-├── requirements.txt            # Python dependencies
-├── pyproject.toml             # Ruff configuration
-├── .env                       # Environment variables (create this)
+├── agent.py
+├── requirements.txt
+├── pyproject.toml
+├── .env
 │
 ├── core/
 │   ├── __init__.py
 │   │
 │   ├── helpers/
 │   │   ├── __init__.py
-│   │   ├── graph.py           # LangGraph workflow definition
-│   │   ├── nodes.py           # Individual workflow nodes
-│   │   └── state.py           # State management
+│   │   ├── graph.py
+│   │   ├── nodes.py
+│   │   └── state.py
 │   │
 │   ├── models/
 │   │   ├── __init__.py
-│   │   └── models.py          # Pydantic models
+│   │   └── models.py
 │   │
 │   ├── prompts/
 │   │   ├── __init__.py
-│   │   ├── system_prompts.py  # System prompts for LLM
-│   │   └── user_prompts.py    # User prompt builders
+│   │   ├── system_prompts.py
+│   │   └── user_prompts.py
 │   │
 │   ├── services/
 │   │   ├── __init__.py
-│   │   ├── exa_client.py      # Exa search integration
-│   │   └── openai_client.py   # OpenAI API wrapper
+│   │   ├── exa_client.py
+│   │   └── openai_client.py
 │   │
 │   ├── utils/
 │   │   ├── __init__.py
-│   │   └── report_utils.py    # Report generation utilities
+│   │   └── report_utils.py
 │   │
-│   └── exceptions.py          # Custom exceptions
+│   └── exceptions.py
 │
-└── reports/                   # Generated reports (created automatically)
+└── reports/
 ```
 
 ### Customization
