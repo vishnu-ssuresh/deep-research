@@ -18,9 +18,9 @@ The agent follows a cyclic process:
    - **Web Search**: Uses Exa's search API to find/retrieve relevant web content.
    - **MCP Integration**: Uses Langchain's MCP adapters to connect with external MCP servers.
 
-5. **Compression**: Distills accumulated search results and findings.
+5. **Compression**: Distills accumulated search results and findings, allowing the agent to synthesize information without running into context length limits.
 
-6. **Reflection**: Evaluates research completeness, identifies knowledge gaps, and decides whether additional iterations are needed (max 5 total iterations).
+6. **Reflection**: Uses a "think" response to evaluate research completeness, identify knowledge gaps, and produce follow-up queries.
 
 7. **Report Generation**: Once research is complete, it synthesizes all findings into a comprehensive report with proper citations.
 
