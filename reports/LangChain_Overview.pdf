@@ -1,0 +1,865 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 25 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/three-years-langchain/)
+>> /Border [ 0 0 0 ] /Rect [ 296.1254 539.1349 462.4529 551.1349 ] /Subtype /Link /Type /Annot
+>>
+endobj
+5 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.articsledge.com/post/langchain)
+>> /Border [ 0 0 0 ] /Rect [ 466.6229 539.1349 503.7179 551.1349 ] /Subtype /Link /Type /Annot
+>>
+endobj
+6 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://medium.com/@riyanshchouhan1223/the-story-of-langchain-how-a-small-team-built-the-framework-powering-generative-ai-e3899f7f2f93)
+>> /Border [ 0 0 0 ] /Rect [ 277.0103 480.1349 504.3396 492.1349 ] /Subtype /Link /Type /Annot
+>>
+endobj
+7 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://research.contrary.com/company/langchain)
+>> /Border [ 0 0 0 ] /Rect [ 508.8277 480.1349 537.2646 492.1349 ] /Subtype /Link /Type /Annot
+>>
+endobj
+8 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://research.contrary.com/company/langchain)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 468.1349 89.78541 480.1349 ] /Subtype /Link /Type /Annot
+>>
+endobj
+9 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.fundz.net/fundings/langchain-funding-round-series-a-d50653)
+>> /Border [ 0 0 0 ] /Rect [ 161.0654 379.1749 304.0454 391.1749 ] /Subtype /Link /Type /Annot
+>>
+endobj
+10 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/versions/v0_2/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 431.7296 344.1749 536.5444 356.1749 ] /Subtype /Link /Type /Annot
+>>
+endobj
+11 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/versions/v0_2/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 332.1749 93.96291 344.1749 ] /Subtype /Link /Type /Annot
+>>
+endobj
+12 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/series-b/)
+>> /Border [ 0 0 0 ] /Rect [ 453.8336 255.2149 537.3932 267.2149 ] /Subtype /Link /Type /Annot
+>>
+endobj
+13 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/series-b/)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 243.2149 196.5179 255.2149 ] /Subtype /Link /Type /Annot
+>>
+endobj
+14 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/)
+>> /Border [ 0 0 0 ] /Rect [ 200.6879 243.2149 241.5329 255.2149 ] /Subtype /Link /Type /Annot
+>>
+endobj
+15 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://fortune.com/2025/10/20/exclusive-early-ai-darling-langchain-is-now-a-unicorn-with-a-fresh-125-million-in-funding/)
+>> /Border [ 0 0 0 ] /Rect [ 245.7029 243.2149 271.5479 255.2149 ] /Subtype /Link /Type /Annot
+>>
+endobj
+16 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/customers)
+>> /Border [ 0 0 0 ] /Rect [ 391.1654 196.2149 492.0329 208.2149 ] /Subtype /Link /Type /Annot
+>>
+endobj
+17 0 obj
+<<
+/Annots [ 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 
+  14 0 R 15 0 R 16 0 R ] /Contents 108 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 107 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+18 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.forbes.com/profile/harrison-chase/)
+>> /Border [ 0 0 0 ] /Rect [ 435.0226 777.8744 458.3626 789.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+19 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.frederick.ai/blog/harrison-chase-langchain)
+>> /Border [ 0 0 0 ] /Rect [ 462.5393 777.8744 502.971 789.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+20 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.youtube.com/watch?v=7D8bw_4hTdo)
+>> /Border [ 0 0 0 ] /Rect [ 507.1477 777.8744 537.576 789.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+21 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.youtube.com/watch?v=7D8bw_4hTdo)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 765.8744 87.70041 777.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+22 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.thekeyexecutives.com/2025/05/16/inside-langchains-rise-why-harrison-chase-focuses-on-function-over-flash/)
+>> /Border [ 0 0 0 ] /Rect [ 91.87041 765.8744 158.1479 777.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+23 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/three-years-langchain/)
+>> /Border [ 0 0 0 ] /Rect [ 150.2204 718.8744 316.5479 730.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+24 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.cbinsights.com/company/langchain/people)
+>> /Border [ 0 0 0 ] /Rect [ 447.3733 641.9144 536.8743 653.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+25 0 obj
+<<
+/BaseFont /ZapfDingbats /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+26 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.cbinsights.com/company/langchain/people)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 629.9144 237.3404 641.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+27 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/people/)
+>> /Border [ 0 0 0 ] /Rect [ 241.5104 629.9144 326.4554 641.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+28 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/careers)
+>> /Border [ 0 0 0 ] /Rect [ 330.6254 629.9144 395.6504 641.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+29 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/)
+>> /Border [ 0 0 0 ] /Rect [ 154.8179 431.8324 191.0879 443.8324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+30 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/versions/v0_2/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 195.2579 431.8324 335.3129 443.8324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+31 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/customers)
+>> /Border [ 0 0 0 ] /Rect [ 152.2904 384.8324 253.1579 396.8324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+32 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://research.contrary.com/company/langchain)
+>> /Border [ 0 0 0 ] /Rect [ 257.3279 384.8324 360.7004 396.8324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+33 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/versions/v0_2/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 297.7979 314.8324 437.8529 326.8324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+34 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://changelog.langchain.com/)
+>> /Border [ 0 0 0 ] /Rect [ 104.7929 244.8324 184.0004 256.8324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+35 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/series-b/)
+>> /Border [ 0 0 0 ] /Rect [ 60.19041 174.8324 284.4704 186.8324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+36 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/versions/v0_2/deprecations/)
+>> /Border [ 0 0 0 ] /Rect [ 317.2643 85.87235 503.8351 97.87235 ] /Subtype /Link /Type /Annot
+>>
+endobj
+37 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.restack.io/docs/langchain-knowledge-chatopenai-deprecated-cat-ai)
+>> /Border [ 0 0 0 ] /Rect [ 508.4077 85.87235 535.4977 97.87235 ] /Subtype /Link /Type /Annot
+>>
+endobj
+38 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://octomind.dev/blog/why-we-no-longer-use-langchain-for-building-our-ai-agents)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 73.87235 106.8779 85.87235 ] /Subtype /Link /Type /Annot
+>>
+endobj
+39 0 obj
+<<
+/Annots [ 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R 26 0 R 27 0 R 28 0 R 
+  29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R 35 0 R 36 0 R 37 0 R 38 0 R ] /Contents 109 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 107 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+40 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://docs.langchain.com/oss/python/integrations/providers/all_providers)
+>> /Border [ 0 0 0 ] /Rect [ 164.4104 729.9144 314.8829 741.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+41 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://medium.com/@takafumi.endo/langchain-why-its-the-foundation-of-ai-agent-development-in-the-enterprise-era-f082717c56d3)
+>> /Border [ 0 0 0 ] /Rect [ 319.0529 729.9144 425.7704 741.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+42 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://dev.to/dpaluy/lang-everything-the-missing-guide-to-langchains-ecosystem-1eo7)
+>> /Border [ 0 0 0 ] /Rect [ 429.9404 729.9144 451.6154 741.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+43 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://research.contrary.com/company/langchain)
+>> /Border [ 0 0 0 ] /Rect [ 150.6254 511.3324 345.7154 523.3324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+44 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.fundz.net/fundings/langchain-funding-round-series-a-d50653)
+>> /Border [ 0 0 0 ] /Rect [ 60.19041 441.3324 203.1704 453.3324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+45 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.clay.com/dossier/langchain-funding)
+>> /Border [ 0 0 0 ] /Rect [ 207.3404 441.3324 222.3404 453.3324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+46 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/series-b/)
+>> /Border [ 0 0 0 ] /Rect [ 289.3346 359.3324 535.4977 371.3324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+47 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 347.3324 98.53791 359.3324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+48 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://theaiinsider.tech/2025/10/24/langchain-closes-125m-at-1-25b-valuation-to-expand-its-open-source-ai-agent-platform/)
+>> /Border [ 0 0 0 ] /Rect [ 102.7079 347.3324 149.3954 359.3324 ] /Subtype /Link /Type /Annot
+>>
+endobj
+49 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/series-b/)
+>> /Border [ 0 0 0 ] /Rect [ 267.3554 263.2724 405.7604 275.2724 ] /Subtype /Link /Type /Annot
+>>
+endobj
+50 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://app.dealroom.co/companies/langchain)
+>> /Border [ 0 0 0 ] /Rect [ 402.0029 183.3124 434.5079 195.3124 ] /Subtype /Link /Type /Annot
+>>
+endobj
+51 0 obj
+<<
+/Annots [ 40 0 R 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R 46 0 R 47 0 R 48 0 R 49 0 R 
+  50 0 R ] /Contents 110 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 107 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+52 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/customers)
+>> /Border [ 0 0 0 ] /Rect [ 394.8929 777.8744 495.7604 789.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+53 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://medium.com/@takafumi.endo/langchain-why-its-the-foundation-of-ai-agent-development-in-the-enterprise-era-f082717c56d3)
+>> /Border [ 0 0 0 ] /Rect [ 426.6605 700.9144 535.4977 712.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+54 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://dev.to/dpaluy/lang-everything-the-missing-guide-to-langchains-ecosystem-1eo7)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 688.9144 79.36791 700.9144 ] /Subtype /Link /Type /Annot
+>>
+endobj
+55 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/people/)
+>> /Border [ 0 0 0 ] /Rect [ 98.11791 611.9544 183.0629 623.9544 ] /Subtype /Link /Type /Annot
+>>
+endobj
+56 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/careers)
+>> /Border [ 0 0 0 ] /Rect [ 187.2329 611.9544 252.2579 623.9544 ] /Subtype /Link /Type /Annot
+>>
+endobj
+57 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.thekeyexecutives.com/2025/05/16/inside-langchains-rise-why-harrison-chase-focuses-on-function-over-flash/)
+>> /Border [ 0 0 0 ] /Rect [ 453.8934 534.9944 537.0968 546.9944 ] /Subtype /Link /Type /Annot
+>>
+endobj
+58 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.thekeyexecutives.com/2025/05/16/inside-langchains-rise-why-harrison-chase-focuses-on-function-over-flash/)
+>> /Border [ 0 0 0 ] /Rect [ 57.69291 522.9944 206.9129 534.9944 ] /Subtype /Link /Type /Annot
+>>
+endobj
+59 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/three-years-langchain/)
+>> /Border [ 0 0 0 ] /Rect [ 211.0829 522.9944 377.4104 534.9944 ] /Subtype /Link /Type /Annot
+>>
+endobj
+60 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/three-years-langchain/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 219.9854 253.6454 231.9854 ] /Subtype /Link /Type /Annot
+>>
+endobj
+61 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://blog.langchain.com/series-b/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 199.9854 225.7229 211.9854 ] /Subtype /Link /Type /Annot
+>>
+endobj
+62 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 179.9854 242.8079 191.9854 ] /Subtype /Link /Type /Annot
+>>
+endobj
+63 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://fortune.com/2025/10/20/exclusive-early-ai-darling-langchain-is-now-a-unicorn-with-a-fresh-125-million-in-funding/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 159.9854 204.8729 171.9854 ] /Subtype /Link /Type /Annot
+>>
+endobj
+64 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 139.9854 152.7629 151.9854 ] /Subtype /Link /Type /Annot
+>>
+endobj
+65 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/versions/v0_2/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 119.9854 227.3729 131.9854 ] /Subtype /Link /Type /Annot
+>>
+endobj
+66 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/customers)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 99.98536 188.1854 111.9854 ] /Subtype /Link /Type /Annot
+>>
+endobj
+67 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://research.contrary.com/company/langchain)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 79.98536 190.6904 91.98536 ] /Subtype /Link /Type /Annot
+>>
+endobj
+68 0 obj
+<<
+/Annots [ 52 0 R 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R 58 0 R 59 0 R 60 0 R 61 0 R 
+  62 0 R 63 0 R 64 0 R 65 0 R 66 0 R 67 0 R ] /Contents 111 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 107 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+69 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://python.langchain.com/docs/people/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 777.8744 172.2629 789.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+70 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.langchain.com/careers)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 757.8744 152.3429 769.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+71 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.fundz.net/fundings/langchain-funding-round-series-a-d50653)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 737.8744 230.2979 749.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+72 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.thekeyexecutives.com/2025/05/16/inside-langchains-rise-why-harrison-chase-focuses-on-function-over-flash/)
+>> /Border [ 0 0 0 ] /Rect [ 87.31791 717.8744 153.5954 729.8744 ] /Subtype /Link /Type /Annot
+>>
+endobj
+73 0 obj
+<<
+/Annots [ 69 0 R 70 0 R 71 0 R 72 0 R ] /Contents 112 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 107 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+74 0 obj
+<<
+/Outlines 76 0 R /PageMode /UseNone /Pages 107 0 R /Type /Catalog
+>>
+endobj
+75 0 obj
+<<
+/Author () /CreationDate (D:20251110225722-08'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20251110225722-08'00') /Producer (xhtml2pdf <https://github.com/xhtml2pdf/xhtml2pdf/>) 
+  /Subject () /Title () /Trapped /False
+>>
+endobj
+76 0 obj
+<<
+/Count 9 /First 77 0 R /Last 77 0 R /Type /Outlines
+>>
+endobj
+77 0 obj
+<<
+/Count -7 /Dest [ 17 0 R /Fit ] /First 78 0 R /Last 106 0 R /Parent 76 0 R /Title (The History and Evolution of LangChain: Founders, Products, and Funding)
+>>
+endobj
+78 0 obj
+<<
+/Count -3 /Dest [ 17 0 R /Fit ] /First 79 0 R /Last 81 0 R /Next 82 0 R /Parent 77 0 R 
+  /Title (1. Chronological Timeline: From Inception to Industry Standard)
+>>
+endobj
+79 0 obj
+<<
+/Dest [ 17 0 R /Fit ] /Next 80 0 R /Parent 78 0 R /Title (Founding and Early Growth \(Late 2022 \205 2023\))
+>>
+endobj
+80 0 obj
+<<
+/Dest [ 17 0 R /Fit ] /Next 81 0 R /Parent 78 0 R /Prev 79 0 R /Title (Commercialization and Platform Expansion \(2024\))
+>>
+endobj
+81 0 obj
+<<
+/Dest [ 17 0 R /Fit ] /Parent 78 0 R /Prev 80 0 R /Title (Maturity and Scale-Up \(2025\))
+>>
+endobj
+82 0 obj
+<<
+/Count -2 /Dest [ 17 0 R /Fit ] /First 83 0 R /Last 84 0 R /Next 85 0 R /Parent 77 0 R 
+  /Prev 78 0 R /Title (2. Founders and Key Team Members)
+>>
+endobj
+83 0 obj
+<<
+/Dest [ 17 0 R /Fit ] /Next 84 0 R /Parent 82 0 R /Title (Harrison Chase: Visionary Founder and CEO)
+>>
+endobj
+84 0 obj
+<<
+/Dest [ 39 0 R /Fit ] /Parent 82 0 R /Prev 83 0 R /Title (Team Structure and Culture)
+>>
+endobj
+85 0 obj
+<<
+/Count -3 /Dest [ 39 0 R /Fit ] /First 86 0 R /Last 92 0 R /Next 93 0 R /Parent 77 0 R 
+  /Prev 82 0 R /Title (3. Product Offerings: Evolution and Ecosystem)
+>>
+endobj
+86 0 obj
+<<
+/Count -4 /Dest [ 39 0 R /Fit ] /First 87 0 R /Last 90 0 R /Next 91 0 R /Parent 85 0 R 
+  /Title (Core Products)
+>>
+endobj
+87 0 obj
+<<
+/Dest [ 39 0 R /Fit ] /Next 88 0 R /Parent 86 0 R /Title (LangChain Framework)
+>>
+endobj
+88 0 obj
+<<
+/Dest [ 39 0 R /Fit ] /Next 89 0 R /Parent 86 0 R /Prev 87 0 R /Title (LangSmith)
+>>
+endobj
+89 0 obj
+<<
+/Dest [ 39 0 R /Fit ] /Next 90 0 R /Parent 86 0 R /Prev 88 0 R /Title (LangGraph)
+>>
+endobj
+90 0 obj
+<<
+/Dest [ 39 0 R /Fit ] /Parent 86 0 R /Prev 89 0 R /Title (No-Code Agent Builder)
+>>
+endobj
+91 0 obj
+<<
+/Dest [ 39 0 R /Fit ] /Next 92 0 R /Parent 85 0 R /Prev 86 0 R /Title (Product Evolution and Deprecations)
+>>
+endobj
+92 0 obj
+<<
+/Dest [ 51 0 R /Fit ] /Parent 85 0 R /Prev 91 0 R /Title (Integrations and Ecosystem)
+>>
+endobj
+93 0 obj
+<<
+/Count -3 /Dest [ 51 0 R /Fit ] /First 94 0 R /Last 99 0 R /Next 100 0 R /Parent 77 0 R 
+  /Prev 85 0 R /Title (4. Funding History and Growth Trajectory)
+>>
+endobj
+94 0 obj
+<<
+/Count -3 /Dest [ 51 0 R /Fit ] /First 95 0 R /Last 97 0 R /Next 98 0 R /Parent 93 0 R 
+  /Title (Funding Rounds and Investors)
+>>
+endobj
+95 0 obj
+<<
+/Dest [ 51 0 R /Fit ] /Next 96 0 R /Parent 94 0 R /Title (Seed and Early Funding)
+>>
+endobj
+96 0 obj
+<<
+/Dest [ 51 0 R /Fit ] /Next 97 0 R /Parent 94 0 R /Prev 95 0 R /Title (Series A \(February 2024\))
+>>
+endobj
+97 0 obj
+<<
+/Dest [ 51 0 R /Fit ] /Parent 94 0 R /Prev 96 0 R /Title (Series B \(October 2025\))
+>>
+endobj
+98 0 obj
+<<
+/Dest [ 51 0 R /Fit ] /Next 99 0 R /Parent 93 0 R /Prev 94 0 R /Title (Use of Funds and Strategic Growth)
+>>
+endobj
+99 0 obj
+<<
+/Dest [ 51 0 R /Fit ] /Parent 93 0 R /Prev 98 0 R /Title (Geographic and Market Focus)
+>>
+endobj
+100 0 obj
+<<
+/Count -4 /Dest [ 51 0 R /Fit ] /First 101 0 R /Last 104 0 R /Next 105 0 R /Parent 77 0 R 
+  /Prev 93 0 R /Title (5. Market Position, Partnerships, and Technical Impact)
+>>
+endobj
+101 0 obj
+<<
+/Dest [ 51 0 R /Fit ] /Next 102 0 R /Parent 100 0 R /Title (Partnerships and Integrations)
+>>
+endobj
+102 0 obj
+<<
+/Dest [ 68 0 R /Fit ] /Next 103 0 R /Parent 100 0 R /Prev 101 0 R /Title (Competitive Position and Differentiators)
+>>
+endobj
+103 0 obj
+<<
+/Dest [ 68 0 R /Fit ] /Next 104 0 R /Parent 100 0 R /Prev 102 0 R /Title (Community and Culture)
+>>
+endobj
+104 0 obj
+<<
+/Dest [ 68 0 R /Fit ] /Parent 100 0 R /Prev 103 0 R /Title (Technical Innovation and Influence)
+>>
+endobj
+105 0 obj
+<<
+/Dest [ 68 0 R /Fit ] /Next 106 0 R /Parent 77 0 R /Prev 100 0 R /Title (6. Summary Table: Key Facts)
+>>
+endobj
+106 0 obj
+<<
+/Dest [ 68 0 R /Fit ] /Parent 77 0 R /Prev 105 0 R /Title (References)
+>>
+endobj
+107 0 obj
+<<
+/Count 5 /Kids [ 17 0 R 39 0 R 51 0 R 68 0 R 73 0 R ] /Type /Pages
+>>
+endobj
+108 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3644
+>>
+stream
+GauHM?$"aY(4Gq\^dB36*JrmU7.nfEj2AS"2N>-#fbqOi,X`h'#o4Yc._gGY"\=&ei](qTdj?:g"E8?Fc8kVS?p=Ptm,(sjf]sj\q'oc<aHgTW`*UZRn(F2lfq2olj%h?kS]nb",$Y7eT$4l)S1Uu=i1C*0%GWVn@NM@Sau3nb37sc:/A+C_bYtsO=b+1P3p#P*O9N?7V=T?MpO[[X`!b^]E>1f^k0`'p_K<W>Q_e*YV!4-#1>_*Yc%E%m:9'&J21*Z=ij.XNq1W+R^<)'e'D=_m][&WdU?A`LZYYM#D#&o>s$?DVh;6HcrFcdtbY&^-+6Ii_P,;[35/'/f4e02GC[<'V(8l_MVMc-q.X!m)J)m3S@d_4_,6"<`k'e#sI@pL\jLdJGAjJbdoDDbX7l.U/fRUZETppDSIGsZ[q.o.+<cZ)7De36lRAbfl7*b:cC';)MK3rD*3[U>=eVg;g]OIlUc.&[uB7d6CYJiuqH\4iTitp=uUD:gMpq%u$?I1%0W7]r%qtE$nYF*CqfpY[c*kUjak]NNap;0rL-38NWs+E0HZ,IldAt7uB5u]gKhh>KPR$"peX]D&^f!/!/J\I87dL@uQf3R:><c*LZ=;_M`]%,5bBq]h?N,76@At5"e[Mpdd";]R5Q?K%(n156<d!,bAZofS"S/<25ELL'@A^dR_],c0k&<0uj5\G@Y=lP*.eZBU`BFOj@*e]!(@`(6dS]s>kh<dh$bnFm6K/>qJbKd?"9B(g,,*;%"eioGIbk/1S0!")jDpR#fc07diRb](O*i/`l(SZVGnC:m:?-aHrD%/&b9!.ra<.3pm.ZlAqH?u+G)uTNpR;X07omC9&`/,98o.QG)3_PW\rWlN.5*#Q/7?uMpcZcV!nA6Rnb$q==0V*mt)D@Q,#?rL*a"DB'7THHRW`3d`CJi2C!(\LaYFA4m2W@8plR)'p#Q2."i&e+5a'b(+5d$KjW4AN#aC^9iS&61rpDm'C^aI5;5+*dVB`88g(1%QmU%Lt?/S:bF;D7g62_9,MSlgO))M%?YX%cYn=n>Cmd)Sahmu0G!GH[U-.S1>'jX/:U`NK@)/DU><Pf.Oe2ZT\T8u6)BJJYb,fnsG:'`)RWrIf#ahWu97^`'!P<Z5C>\,j=n4=cOVX:ebs%[O>e&=W-LI8h_m&$i,I<@%Yf)&BAC_4)&2%es`<T>[AH*E!M@XJNo@5a;p3m#NAT'<#EE6gP#Oh#j-0G0sG@O^gFVMmZq3XD&C<7b:1[JhPtsi<(DV^/CD;%ARnH@os,;LQCSikSF*K:d5q&l+GQZW.BjEe&&JB?K%Qh5UMUdi""[?XXkG$E,Xs&<A1Bm1]k"BC'bme]]nBB*4Mcs>1.nM@gI:`^T;-^\dWK)!?P6ZIUQdNOdQ5",8mHcd/jlFN3C&;D"$3h4@Yp@AN+&4_3n[D%?`uHEsd-cp;<'_s5/A$HA/1J/PO@\]rN0X'NcIk3K[2L\0df3c2P<LJht@jldAqI8ES2Y9slt9ER3`rp+j6M=VgdaXXQgn3cSYJOGc!b.q1G;h91hkiS7%[@BZZlb7g4o8b*kP(j[UZZEleun<WY,QsGs%8sl`kbFr+hQ='tNkX^'(_Yl"O6-]iG+ukurI(2'_U[0&"hjrM=^EgLk.R/f5-*ggtQ_bILr=@X#$N9;HSOUp6)]mN%KRNNT$]Vce9&t\N]`.?LZ^EM="[<j\N^/TLEM,e&iQl/_OFPFoT3J7cS;N@pPb;QBYj.<N)JTFaj(tOq^Ma8%O&V7^Ibg@U\l(GDK7k08fu3._/Q]X9;H-)KPOsn5)#ggtPcLl5*B#1+Pqr6l)9R8dCb(Y,,L!I1a?G4jXnW[>6oiPD.[utQF4b_W^!$+mf*PQMM-NOpA`YY",p:,_EQ*]:J5C&CMb=pq6pWc,OP:Q?_H*[hKs.uZq?!PSZkFfSFQ\V$k,OTA'NV/hC2G,_h*^\?Z@[NH(%m]TghUPaNU0EaN.Nkl/?PI]+HHtn#"S2g3LSlW'c*+17Q(K\IBSgYF,H'2E,.P<iu[NW6C+i[:^.&di3f]-cJIVs(GjD/^8iY8.?1jo*[B"O_jGjrSOTR,`SW)B/l>b<B5":*B:"u"M[rVt`450Y?_CWHj`flYT_S>7$>o<7DXsMS'1<^,!u3tY1EVa\73b%OSceMllqSj@H!FRq1DpQ32k<jXDCo(#a^N.2kjSa=6T_f,YjK9>gLEfrfFDLTs.7:D5E6r>Zr'=$AA\G.Moa6.8K2h!<k@I(s#!CjbpDmBB0X3s22[WmF,M(Q'm%22.>'>,$=/2WZWE<r9D$dUY?\=6/r<P<lb[N-nJY</X>q`:-9j4ANM=cci^F;K?>nL%C]H:G6VBEtFJ8f%&F,S2F8+=LMNXU=SF)\I"'1Ci+YOrZ7)T>[cZ#Pu[TOmrL#^!Ig3/pn4taWK(?JN48au\WC@1Fgs3JKDIA"]g2hPb&o.7@ZRJPl!87#9SB_bt2(J!#+Q=X,,@?N1YBClhOp<G$"3,k]nq-f#1iG9Nr-3TlS:`.U2St."MX+$s^DJNrJ0<-A,Ju9[b8lh2#'WbQ@q>t(RmU"T8[,S4MmBGT'HMo6$kC^&k-lFd0+:TgXR(HGX`ElJ1^bS3W9GUI:cmi+YUV&/-'P4bOA[:Yf_s`he/Hh6>hj,+kH-)<LW\Wpb_?!Gg]l-H(E05B:oJ_rK%I]Ao6eH:MXi9osX[E$Iq1p+^Z`fbpZFOEaqf<"1:T*u'$_b\Aeu@ns_Q#Ra/^U8<g^]`gEhFGSe-Z?Z3ljpOa1l2V>1(R[&<;%b!-0lRaCmeZMkWGp-Du:J,"W"Z4TXs%a.RkZa+qcM!n+]M68(Wb4n,K/.EA'Zi7Z9?1Vk_[8JD9tW;6Bhf<Lr=%VY7TEcip.YWb<n(CWItA!0)U47/j2%3G]^"q<7++HOqiLh<q?OpN)[@PY78>9q^&V2@lA3SR40d$Fn3IioM_br6E5,sl*iI</YJ]2mafs"UTUL(gp6ZGUkm^no,p92,ih?-BEb!mnT]TgPbb:i'L3&MH`lcPkWsn5"#c3:0-u;a*%TcJPVpG55\o0[(l(,l.fl!<4Do_L]F,6SfE&E;kIK2VDepOf'Tf:Js0@7D<P$XS?JYe;d1,i,)Lk"`I"i;fYa9N4PJ(<5)L)1F*$WJUcJ%>jT'C)O.UB^$p.-n$JEtd)Ve\)FkO[`S<=V?[/*4Hp>Ni"b^BGU=n8mUq+mPF>;;53j^';W8tX"2p)X!W..-^8WtTImRM``GG9@X*F4[g,IL=SnareX`OBC?r&?K>1is6PUgK5]h*^q`gV'GiIf1&_fX?o$G+`Fgq;TGTeH6o&:7eugNtq`9_r>%U+8/tN>*%&?edIg_IXCdX(S<;k,sN0:Hue%!'Ys6]B["iaAsA+>T^KL&CKZ1/#dI,/:\L?Ga8YBQR-*_R8=Ib!b@97".@SI`^RWU!-c<LYH6/mI%;>P?UupncEeBl[J>T]RK_`IbI`T:DPfcbp@BpoK3_`8I6]8DA#+e#KVXDIZPJ%*jY#X$liJ+%>i82jS`tgqcM9*:B44@RYqMSipCL>Y)5WT3>Cc_I5[`*/#6dZ7PBeKd([][+hWO8%LnBQ48huYnq#nqV.gK.Y7cZDnY%N)d+R#uZH+3DOF.!FLHNOpEgb`S_ll,_0L%kM]f-3~>endstream
+endobj
+109 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3320
+>>
+stream
+Gau`U?$"a[&q&$/R"q`Cj@\Eh'M21!Q8hVtHd:cs<EECi(Pm_iX@\!OOA`H.5Q5s/l8*E2a2qZ,Nb&S"#!hp)cS2.,re9e?]HVZF9g?;s.?*J::15-\FF?TEf8ooYoFBbe5<;AgF;dk@RO$?)S>K54p>G>"L8"W?0H#kf.&$=M.kD;#<fKR7)CBQ3;(robP7cAM]@F)i*0VN(5_>s71(/CZnlDk<aa,*GZBB?'CXk&:>tQU-8s[&NL2pR"?*2i*JEB?#fjS!nTgkDMjf/opWY_IGI'qD(P[%E*F[<.RQaOt)M4%m1/?k/2O,op[ocI:a1nI0m,+5='8Oc"3A6BVYOBuTVPI;QV&F+f6rhts51b-86Vm!gKK&:]ph9D`7GPs07.1Yk;X6mX8C!(32jhKo3/jIIjj2:l5eil8([S$ZCmi4IHh#``n\i3/tJ]g%,_'KCX@5tq>/f./hji8d,/<s,kXR/nCAD9g-$#br3MFJA'-0bYgWnJ!.]<^g_*70#2ng,a_ALS%\LV*Bj_e0p'9kW2]M*0Bqh27UM*S_K%JrD5uEme-[lb'R"!Of#E"9JIAHs&`JO5`!9pVm4oN-;%2,u9aMBL=:]'kWhK6NDOo!ItR/15h0Tgb)%]#Z/]?TS!5-oUN(e?B]&k&qFliBa^Ms,r$@'O_"(mnWPm,;VK^3+Tp.K$fE"Bjqq3[d7'Dnf\s^*1jPjr++=\uhTL0nEutlMFM0M/ddPh_jbTOOW[rB^]A%QAnBripU@HicQV>G`cTm5L(<7#>%)AF2*aB:g60Q/8mk2c2#TjPr.DPAjOeSQ\!(P8lEDX175WV!fBRE=k?fT9\XGPshCVjJDL1*-WRl::L.M1YW@>qM%.*!O/!McaE!)D"fJ?7^7jEtBVRjnW?9UZjDX@$mEfl1g5YcU^SJf+mAH"%2i;1LQ$hdC;<FgKj+5fbZa_B@'s.F+F1Lb.G>HK06$W)1:7RWUa3>+6J8,tC(O&Shk2f<p*4")N%R/'nOF/_lX-V4RJjWt9Q7DuPPXShM'9&9g:E]#01HgSM=Z?#18<R*:ak(.[CK\pcr#FoakX)MG.77'];10VC0V8_6k#Cbat&.0fc^.c/]Q^e;(;QMBUe6+HQ7%O#>U6?ZcLFSn:WJ\16AMp"$]HGN)oc/=uO8(jLOecU5qKdiCcc]LD3(Xt\6Z>*"FOl%R9Dl%?%ZN'c`5J7nPU$/cW\?>/sSab^2Y@WMG(-X\\g^>st6$W\+hOCm]\Y(nkZfr>[kVism.?U>B]n\_[O\JKK[<+,Sfa^#=,JaG(Ne2G@SrgMeh_,onUK2nPO1r/0;_9IAD+AC2=DftY1JS'H9=7j0A*iQ`QWs9IPb.&?f4fc]-&9]">.763p^JXr*uO)diU)/Mg=*R3<9np=X!,?S[]jlsP[?)qALV6Fle2(m3'"^h284Qg1igLj^O0"m(DXnl(hD;V__3<a\95)s)FS"]3ukO_8`Ii@#XWo&*fj3cVrM/?M71P_7;PhAQhZLAHL'+LhTY0P.J:RW9U@88\d[Xpk;(Y4@p<)aFtc4F`T&X!`%W&T;uB<YfI/X"#)q/\*l/+POF6-q^:3Z>BE5X$^-25Aj"(\WY=A=V[UqTYh;-GE(qS$J0+>q?MKF#L;0$8VhrFijC`8"k1JGS_T1O'?%X"=ZJ>eNrHfQ@oY5NfH7Tm-t6%*pZZ`UiLBh)?7?cp[klLhC/CMDGi*n]"n?@i&2T(V#:]um'MN5sd1Mm_4(P$f_'ET07kiQ?%HI%aWXK..QS/B.:PWq3N;Oh?'g4cHYR;H/7f"1fmL=%I8h2't3Sj-'MEYupL7jJ8ei/cHqED30.)6unJA;>Q?\>*kklPt;mj0%/$_BAT6rRuH4N43LOe[G/3FaXU*iR/R@_Pl0+H_R5p4Gg"h/[dG/g0$-gDTES[<QO^\na-gVUgi:?*ae`)gD$GEoFWQO$BN.j#jm'UI)!dHj>%pORF`+b4qEC1[)#=-b$$AlI$8[ZeZfl9JSQOl3_mI/lQL'J:.HN'>N#7%H/(BPS9sp[a>0XU(N?*Y]U?`E,!]Y^kKF)#tFc6AM1[<X'odV:GdR*W_CC@G)RW/_KDKR8M#tU3M\!G`k9qtEU1X4r[%I*Ur$P&C?b7t"BDEUt-e_nTLr=O7W:i!\[J3+@I(E=?C"Hf([C[aurDO^sbE$;a3!$LR4_(e>.S-Tq%\P]JEcoc`11fF&(q@&0doK,Qg`c[">`#aZe$g*m3)g^B`oZuD&X3%oos'&Lf!t<]Mlu5EYKKA/@.#H9E:0/ZE\tUPj7BtGf[tCdm*O[N3kEN;ji=e*h/r3F<._8NI?AM>q,>Ms'jcr0<AP:,k/]`XYhXu;Zdmck6HSUJBfRm,?mV:e;WG$Z)JCqXbD:bG3o6)"`OBaHdB5J?;ZSQ3ABoG_L7l5>uYC3e:Q>=9VZdUk9FnmWYFa6ZK4f.pIppZS\kt=bi[POME`N[l[r&@X^*duA;cJO`"U[1LW_O]!*iJ`6d.tTTPPO(Cll0jf4N(EgLB70,bDlY7!'32&#o%(58\W[FAA+l]X11d%:N6YX%$2*9X"d=O285#Jk:P^`^drFR_BOp#0r3MTXFIXgX`XPXD]CsBbEj$g<8('!&XZRWuM?6FRhrs,BB2@PTO?.*,/r6(K3Dc;aCOJ\^^JC0'Za=3Qmig;to`>3-GSlme+,T.;o^G1g;K4)KR]:]t]dpHDr?97B1/R+NBYUS3:#>.QK\@[ET^#p'Mlc0sijBii]L<?sRGT4+C[DI9#F$)b0/4&KV+.=Fn]jV0bMC(-F0M.ZqY%o@A>12AP%ih+X,uG'],5quVLNc.e=e9e.cbF=s)PcpF+,IO5.k!SRQ#k1%opOACHc/f7n^#"H31nI8U*[F,>\77]c_-Eo4%a8ID+c&gtDL`b@+`@=]e$\V*!*1iB?7D3W0oo!S^AjEVne,ClI^Ls6PdDKHng+LXtIoE.lir51,fgl1g4;r1od#FW/KHG,&;>e<47;>3?FkDN.one`?-$==SFE(2h@F\$%pb>hLPH"nmA`SN!RuU9F)'*WP*..Z[&-319WCS?(USDm&3"B0L/nln;r'*1!n)&<.pX%&COU50Ak?0PnoMpY92d3em&7]je84,q^>?i53@sF&?K7M)p>nR&0bf[M;$L=E-O`*eJ_aYb.1P?lPN73Fm)1?K&sQ\SD"2jK@BJ#lA#t0W!I8jjMXrYg3eK*]-<EjC\m;oEnP^a%$u-U2@M-'Y8;1!*rY>C0Yu2SXu+\<90dVi1Bi_4RHRFG`K]_1;g6hCjQh%nEg1K8WU`g(&?)j5'mXK>Gkj\W>':6?A_I<rWd04:f[~>endstream
+endobj
+110 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2994
+>>
+stream
+GauHN>?BQM&q9"FeAIe>A<3k?h,<)P)7&U[aTX$__Fl+2[Xt;u\m+m4^OE4e(JA/V15$nr=I.J8F`i+>>pKYkr9KaMP60\7)Lanl^iA?0%NOBsiVEWT\3Bb<oGN.Kk3=(r_UshgR*BHjothR7m@AE.lI=]nZQSsR!N_?$@&KJE[N+2F.12TdMF3impG3U0bFrW%fCi\*`SXPVim!c*dKbkT3'JuQT1c%;;(>sb$@a<f4XeR52fS^)Y5_4(59$i!G<g>b4cjO,E=)3E:P35'Xq`tu/].pD%oL4:g6h<F(ia-kol?LNK`?Xho61S.Q#J7@dL,b6R[5L.EQIuL>A&6_/C1"thh6Z@Mb@/EZ-#rs(#0dY>k7IHHib[l?:_?FOpPB6bpL5K@bn\b^ksKXmn9'\[nLd!JKu%3$Hnt(4!>"0!j1).bVm6g5B^9bT[1Y-?h%AP\HFKPXt2P&XE[uFQ)J61J[]emgdthK>iF>c4=b+q;&!#ukm&V)>33Dg%.ka-l#b#mSnOEAkjj>]BB:*gNE:)/'31G=/)WoX5^:N8][U'c-g*Ii\JgO>>fob!8'0+5k(_06JiL,M&QhmA7BUQPhuo%n1Nh$F;g9r."h,#hm8>`DDZ_AkGD8b^Al\AE1CBXpCO4Q^n+k,Sip!R(Dlh>mmgQmYNBdG+ZHZrf4rfjM6NMYs=A]c&G`]hnY/.uCA%@W7RmKsh"TIaB?(@!i@Y]^4^,;Cj/b*>hjp(^mmosacFsLGj:SuLP+,jEPOCF2[\X)TOEVbG<2R.kTpDff-3jXGUIg7m7&_HDP7-XkUn)N\c+0>HSCL4X:0B>R0lCF7l:)6Z9pHJp(bNV:Dq_%&%Xk_Z#mbLY)2m>Yr\B[-3%!6Nobcm@#'M#aM,O2.s._8hanNG@6?-.25j,Sg^[Y6f#ApcL#2aUaGB!_6k1R@J0%e&0Rcj=P>FQ</l!7=NX?mNOO!YK2B_GCLs5_gTN!:'Eh(&Ru'J9k65`T)JTE43`4Vo'[$+SAt`*a\IOPPY8LTDXN(7;d`=(h3eMhaV1Fq(I7j=ir:aNIq"ljjb]h(`+4J]`Y&>W(5/kjH#Io1O]_7mJ;1JWT3Iu_78J[_mJK8%ucOJY6<lE2n7WFU#Y(3=lOcS1'[4"1=If3K;R[s([a_u".'[\"*Vi1A5P%+O/Zs#bd4o6GTVFP4L*so,@&9r=#/U(6:71jbas1(\s#t9l[\btBHgD0Q;FafUES.O=@0\6N8L--)"gK<cG+fHbG(tQg%<<FJ5!Q^:AZ0J:LM)DN`Q\9-ES,4fUTN^b9b_Q*55lb<CoBCH`sm*BYe!2p3C;Nlbt4<fjEYJ0Ki:7mBQABo<`Bt0UY/4"j,sbh"F6IgO[f?4MYuI0=JRm/Vh(W=jA2PRUnM1n98")nnB$^6.(#HRL4]+hCC/('q\;_Sgd3Nc6QHE9_Z\4VR9rk`Z)HC!Zk9G:)1AT"_b02l3rlSYOA^,='TMZS#UV-Z%@I/en80;6uPankCC`$@sRd_\i_'3d=:+J+a(QV5-7dbEeRC;3P/)+\qGR`75uI$lAEOC<mt"r^8?fGHZMQBPcP];\s,tG]GZ^T45A*SpUGV.O2;J=fBpJ8ladEWs+)B;F5"l^BbSS8HYsq`;.`/>+F0$Ga<f3T8sO8kMJX8)do9p0DONL`oV9SeB5?\pg0>Cu0DN?9XI1"r2/SA;H;[j$"Vlc9)CB)38nQn9Wq(Op/t:XcrYp`)Sg@+[W#:'d7PF6+"7U>k5)8GK?Y;A3U@*?,C.[i-7\!,VVXp;F>.:4L,=ZqV`nSVNQ]6PrD.$rqAnnqV-[8\8l!;S@8.k#$:umjETnsPoBM$@-`\YQNr8@AZfuohWMf>!L]5\\SB+6mO:hK<d/#OCh0]t,2ohD*Sp"@fToC+TNS"$"fp'Ih)CrC>i\dg(J%LGMIZ62&CH!<W\<afg+,cKr$m$7X7J"nqU=nuIhQm=fWP%dZ:9e.K'j7NQW^jW9<`l*T@!6;Amk3rJ-K112jGE+\J@[`+;KBWCI&UJU3:hu%%<`u#78M+nH+:Ds.iN/s_8i^7QCi#QlbGNEaA4pLPJmoE_[QBUNas[@07FRqg;\+[:H(NFS-c#buQ(-lO>1*M;Y!kLp?rf4l;m@SkWDR6(a^BGQAZpAc")aBUUCB_K`/R>7[=je7X@q7`@j#:.<l6=,5@)tYeJK5'#I@e/AFWEXN]p*_BGXFhi>ffY\+2s;j>fd&p_WX=s&,@bXL#'.H_lQ$o.4VPe74VNPX=+e7dbT$*%gsQ_V*D)R"4p*pS2fM2pQ5OclocEl9)E:m"j4l)t;aROaH[A_l))cHFeW@-b;K1E7?B0_O;Pc8i4Akg](suaBjeaVaE#H8[X&R8b]+ULKaFoMfg\tF2M%)l`>h/5:c1J;d/1i'kR7jP/beCOgU"E:7(h'ppp]B(0iH%8[<TG>VMGn.Z%o'TPX=JOM+ZD&+1@Dbjnfi)K[t&'F.DClUd$n$E=RL]@1$/hfaPa:<F2:<5OPO@Q[^]>i4dNBDVjsm<HBBB0L8hV\k9%6C,9[XBB%iK0a;>U7>Ar#P7^o'Qqubgd<-4UY@=Z9>=tZK:>RQ5A!$ZKJQ<uP>!8:WAHbX-M_JMLJoQqb7)_dF9;&=gnGaNk<=;X/VVQZ!oHVdqLQ#5]u,eU_,cqqS"]s7?Nt9ho5orm#X)(!F@HljK*!P,8bFRPb'@9\.$9G4%#X'2)9PoYEif''6iHgDB0!g^?KACe38E=+4n*T!X=#%_=$Q0`XOaX@M7O7g^o(MU<iZpG)^Q833LjUQRHQ"6qRMZ:@k+V:./7@Qn#s6Hpq(fKA9?i\hM6D6fcA8*7>JSC;E"Y*q;1\.bK+m3[_1.Ba(6`2is1WODuml?K#.j-qGBgo#AtO3]dHM-(!`a+NAo7_/n-5\QsA;irojbi#t51''QUlBkUlR.BQI8D-'VRQRTEtV;TKL>a-&bu4[uGP6iFmi;8U\Lf*d/[h$QSg5-,M(q[#dm#KZ7I#Q~>endstream
+endobj
+111 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2727
+>>
+stream
+Gb!Sn>uTKK(4G@IgkVjIB?O?JrB[Hl$HS<;(M4<LAnnAkOla$RN3$(0/JE'iO.XlQbEa;@#3'oYi#q[>IIHEAmle.674/":qYt)$F?65,k8%2Y%4>\sL.fEWqIOpDp#m&Qf'7/!2uLaW/.)I%YTc<KZ`VCd%BTDb&X\SiHZXIbJZ\TMU#B2s%Hi&/90HcmG\Tjg?@A/=l<VF*oP>;@3DF`io2LO1kC]R(AX^OT`C5pJ5iSR^;'e#U"f;$H#ruY/Ull$"Qg/ZVVNZp(_=(LJ``/1M>U;.2UiK&9]f.eGJf.91Z8&[%q.:2$&UIl!]@r4M8k;-Y-/D*uVG,?ees<EZDAdm"`m?)gs%p4Rd^X_ZJY$Wp[dt>^?K;5"d#/=UFmU)2,P#UQD1HBO#d-:p6f5o$L?#=eg(QY'QiqdE7N]03'm(@bpZZ2iCiYr`n58Q<J03Jc%Q)B/psGCSY1p1uYW^/g6,C0]M/mCd[NJn\Hm!Z6-EL!a/9VeqII/EZ-<VtL;8u-],F'gB<QRcc$0k&X.P<#A8j9.`Kb`N"kQ7(u4K1"m!1PI2'"[,bT9G5kM*CHl@-&RRV&;7hVeR>2[Io8aqbH(Mj'G);N)[)6>s1S3OEVb,R5..T(r6r"bU.=p8K>;q.\8FRV%/7'bH!Q$C!7>Dj+ZL+5smc;b`D@,%7h?QknjN/ZG&D'-40bR,%SgekriNN0++7@)nR#TQ%K3,Qgf=F6orS$/iY[t=i&V'YWU1,MU\"K"trS'9+*3fNo>T\BbCe6?jiPXdX6q6,ft>/gb/V;Eh?1@@cOha+)g/"c?Y\9[9!l+Z+oDPA)k:9$UaJ$"gdY@(4s:[R-.JPW1t.!$p4QSpU8ZF3iq.!?6+B`c&L(j/^J`7^_2heN`[!k$&:>j3=(?q@hj-,\OCFo<?>f+&ttQZBqG;7krDlKPAnLo;5JlS^ZMI;N113.3_%o%LhSnn&Ceoo\>sSsgfe9M4FrIts!FHSaU:OK5,".#:a]qn@^Q\4RAl^TQUT^Q96FO"'.4V%,I\kH_M-LY.AfNpJpFXtdu9@Gs#L:l9^TZ'Z,B$$IH'B6irpY+s.o+2HgW_k;D1s%ch#[%le[oI8mS&M-f,!k);o,-ddl01o)d6WXM6L0L+JbS>&7I)3FB_jJpEJSZ3l!345`rW3_Y$#WDkV]"XAC]kYV@nQmSBR&I!([WL2BR\<Dh73$42:7<)9HTjofYAL*C[Qc`I%^_'adcHG=H`g4.ZDCf:_q,OM.m+\CDl?[c[k1H9o.`9)=\H[Jp/P@d"P#WomEDtDsWd)9-n#/q&b%Y/K6uCMPljdt8K5B(SK2.bDS$ppeeWs@N?,d<ibk<p64].J5/-Nbp9h<_aX37#pEL*^PWL>\]GVZ-.F=F:f)(T-iX,8,nP["L-1hf-Cl6uB>Wu(7IcE3Z4=jV:@f^X.Upg^b.?fSFc"_P`%Jt\8mhCpO#cE"V/-\c%l/*a=k,\'E*!eqT<&Gl$+LiK-PF]tWp=B"L?W+aN4NiY<ircMc:gTEa\jn`@[DM[it7Nm6&k[rFSY4!9PjR*N,d.]X]\0$M4DVoS1?\b@k"G,ASR0WlIp:BgRDpV39LCRM9&Fmc#l/-;KkMXKM/T,g,lW>cJ`W/U?5<TZt_,\ZT)<,??gL4KW51WH?=//ekO.&8Zglqlr"h%\0r,%P\(34WJkHArl)'B;WOlGAFSZV8IAucSBJ4L+RKC)0Q0Z/'.,BC&D0/4'X+n4lI9RP//.PfDWZ2O#!)t@q(k8O).Ib01=NB<kIK@,7o\;V_4$.VMnC<J]7i@e<\gGaPG!U!#ENKcfI`ViPeiV5D+!J)cYT)J6WhV]EqP^BD*[`?)kY%rH2J\m.N1K?</O"?EO)8CUK%@V,T`_nX??RmtXXE3!$KA(lm\VX1p+J"]q,eQoc-f(_giB]$*MSGgqJ#jC*rjWrhRWY%#[EZr9_Q?$"J2RUe^[],XLM/YE]!!a4Rr2^`G[Y,NlK^.?Lfd>0)\ZN(L!H9um'+XdF%>dKgUj1!VKW&:&=;QrUlq%ua2tM":ZFa\`j]mCd8*g/c;WNo3u#$PQ]4YOMpEKqh0n&dom9;h330Cpg`r<kl[[Xf`hh*+82Y-4[<juS]a>"P$?3+EmaEWUhb<DVp#uV8763a+EJC&)o(rN,K;bB<BY-K]d&J&R"OoM,'tgPj[[On\I=ZLP'>Y'5I#5M<,l!!t`OD?!YMG5OUOR%=Ha\4MZoR.%R`eA^K`u3lZ`An>:_a\*H*N.^-99BfC6*\OC#=&WZS24]ZKC6,^@A4_eXOSQp5laFfTq3U"OfOCQe2+oqndS#4"fQ6b*q.k/S*_?[^4`cIa,mj?8V<>r,nA0G0SNs-=*I9b,T`";Hi*?0F^s/=U._0l^\R00O"mXr`/>:9P78Q18.K(+!aH9N,$&Q?WF^\:,o(*7RGbdjenXYBb22S^Z!Irg3MHC%F6p#&b4fHr&)sX<loR:p]l$3Q=DmdE0%63K:s2"^]3<$7=e#*f&jeYf6Xo,&88!";:jRY^ee+A>3HalIdm&nC;!gbG3p2Nd;)-f'>^RaT,qnRkXhA@]hR.louc;dE!<EW/u9*(9&MI?^Jau0]l%#1o$<:DIhl_SCBX$p6eg_(NS&_'Z?VedNJusgAj$GMk;>T660Jh;64:T#"jO*lnJc0:!jXarG;Pue4:sDR^+?VBM*:K<(LEY^K_.ZsK%GjB')q/Jb4Y%<^Q+q:&fpoS*5IIS~>endstream
+endobj
+112 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 805
+>>
+stream
+Gb!TS9iKe#&;KZL'mo-fm9j?Or]F'_3ja"+Zp&LBp;R^)8?O3cA>VT*CP@Fp!=g*;`#2!ImJH=H[5c+siSh7P!dq-.oTB:m:sFP=/:m()/um%NaULE20fmQ]<f3&-So_opXJEN7b@8IhM"l.V1@i+L_(qTK[1"6>7?L2&8hff1[I'H!dp&F,T:rh<9sHgPEKS-7'p5#GX"dRJ.-UL]1DB;['U1L-ZT'Ug'kpO$,\[*Bdru)t+:+NEc?>\c=f,Bg`teSi"g4\>cPKJr"0+!c*LItm2hC#6.l>_9899gpcD<t:mTjL<*uiHPgAb)oSMD*'>(mG3Lfbp"/0^\"$Q8u#aJoE\&)=t>"4i*+.stD[AS&;_o5[*Ye*%+pR\&u33/%802UPs;KV[P-.*@/@FR\Hn2,P>>gFi*r0g)^eHZVY28TlLBRu&DOkrdNMYrk"=ID=SF+WT:,_.mG9\sC#K3pEX249;mr<t4*1FG-#Bd`fUNM]/];Tu5Ou?u=]=H!E,7Zt;o.lBH2NhJ@.bSa"O><G80Q7oD32Dp:Gr*kVNa41BJ,bljXRGr?/1GMDj7C/!5N$aj.2;K'?&aH^XqPPO,AMk_psVS&qNcj;fbcZs"ZTZDZoTcWNR<jh9ZBl-mk/F?tA^DsWOS#ESkR>0:][9oGSe.&7IHEgKCZ.V)PAX3P,\EuYY)-hGWfuT-oYT]!O2\9,Teo5:"+rK4DH.!-g<!:q3.Yf,cdg,/5[9@b67F8*#n`8FC_FqAWQq?=jLUCB@da#"ihQ5+6F(BCXbhTDden)JXUDF"ZrrKaVpgF~>endstream
+endobj
+xref
+0 113
+0000000000 65535 f 
+0000000073 00000 n 
+0000000125 00000 n 
+0000000232 00000 n 
+0000000344 00000 n 
+0000000545 00000 n 
+0000000739 00000 n 
+0000001025 00000 n 
+0000001224 00000 n 
+0000001423 00000 n 
+0000001645 00000 n 
+0000001855 00000 n 
+0000002065 00000 n 
+0000002254 00000 n 
+0000002443 00000 n 
+0000002689 00000 n 
+0000002963 00000 n 
+0000003151 00000 n 
+0000003459 00000 n 
+0000003658 00000 n 
+0000003864 00000 n 
+0000004059 00000 n 
+0000004255 00000 n 
+0000004525 00000 n 
+0000004727 00000 n 
+0000004931 00000 n 
+0000005015 00000 n 
+0000005219 00000 n 
+0000005413 00000 n 
+0000005599 00000 n 
+0000005778 00000 n 
+0000005988 00000 n 
+0000006176 00000 n 
+0000006376 00000 n 
+0000006586 00000 n 
+0000006771 00000 n 
+0000006960 00000 n 
+0000007174 00000 n 
+0000007403 00000 n 
+0000007639 00000 n 
+0000008002 00000 n 
+0000008229 00000 n 
+0000008507 00000 n 
+0000008744 00000 n 
+0000008944 00000 n 
+0000009167 00000 n 
+0000009366 00000 n 
+0000009555 00000 n 
+0000009801 00000 n 
+0000010076 00000 n 
+0000010265 00000 n 
+0000010461 00000 n 
+0000010761 00000 n 
+0000010949 00000 n 
+0000011227 00000 n 
+0000011464 00000 n 
+0000011658 00000 n 
+0000011844 00000 n 
+0000012114 00000 n 
+0000012384 00000 n 
+0000012586 00000 n 
+0000012788 00000 n 
+0000012977 00000 n 
+0000013223 00000 n 
+0000013497 00000 n 
+0000013676 00000 n 
+0000013886 00000 n 
+0000014074 00000 n 
+0000014274 00000 n 
+0000014609 00000 n 
+0000014803 00000 n 
+0000014989 00000 n 
+0000015212 00000 n 
+0000015482 00000 n 
+0000015730 00000 n 
+0000015818 00000 n 
+0000016071 00000 n 
+0000016145 00000 n 
+0000016323 00000 n 
+0000016507 00000 n 
+0000016638 00000 n 
+0000016782 00000 n 
+0000016894 00000 n 
+0000017061 00000 n 
+0000017184 00000 n 
+0000017292 00000 n 
+0000017472 00000 n 
+0000017607 00000 n 
+0000017708 00000 n 
+0000017812 00000 n 
+0000017916 00000 n 
+0000018019 00000 n 
+0000018148 00000 n 
+0000018256 00000 n 
+0000018432 00000 n 
+0000018582 00000 n 
+0000018686 00000 n 
+0000018807 00000 n 
+0000018914 00000 n 
+0000019042 00000 n 
+0000019151 00000 n 
+0000019344 00000 n 
+0000019458 00000 n 
+0000019597 00000 n 
+0000019717 00000 n 
+0000019836 00000 n 
+0000019961 00000 n 
+0000020055 00000 n 
+0000020145 00000 n 
+0000023882 00000 n 
+0000027295 00000 n 
+0000030382 00000 n 
+0000033202 00000 n 
+trailer
+<<
+/ID 
+[<469111a72772c325adbab1abf546367e><469111a72772c325adbab1abf546367e>]
+% ReportLab generated PDF document -- digest (http://www.reportlab.com)
+
+/Info 75 0 R
+/Root 74 0 R
+/Size 113
+>>
+startxref
+34099
+%%EOF
