@@ -1,4 +1,6 @@
 from langchain_core.messages import AIMessage, HumanMessage
+
+from ..errors import NodeError
 from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries
 from ..prompts import (
     CLARIFY_SYSTEM_PROMPT,
@@ -22,10 +24,6 @@ from .state import ResearchState
 
 
 def clarify_node(state: ResearchState) -> ResearchState:
-    """
-    Ask clarifying questions about the user's query.
-    """
-
     messages = state["messages"]
     original_query = messages[0].content if messages else ""
 
@@ -64,10 +62,6 @@ def clarify_node(state: ResearchState) -> ResearchState:
 
 
 def research_brief_node(state: ResearchState) -> ResearchState:
-    """
-    Generate a research brief based on query and clarifications.
-    """
-
     messages = state["messages"]
 
     llm = OpenAIClient()
@@ -88,10 +82,6 @@ def research_brief_node(state: ResearchState) -> ResearchState:
 
 
 def generate_queries_node(state: ResearchState) -> ResearchState:
-    """
-    Generate search queries based on research brief.
-    """
-
     research_brief = state.get("research_brief", "")
     search_iteration = state.get("search_iteration", 0)
 
@@ -138,17 +128,12 @@ def generate_queries_node(state: ResearchState) -> ResearchState:
 
 
 def search_node(state: ResearchState) -> ResearchState:
-    """
-    Execute Exa searches.
-    """
-
     search_queries = state.get("search_queries", [])
     search_results = state.get("search_results", [])
     search_iteration = state.get("search_iteration", 0)
 
     if not search_queries:
-        # TODO: handle error
-        raise ValueError("No search queries found in state")
+        raise NodeError("No search queries found in state")
 
     exa = ExaClient()
 
@@ -185,9 +170,6 @@ def search_node(state: ResearchState) -> ResearchState:
 
 
 def compression_node(state: ResearchState) -> ResearchState:
-    """
-    Compress all search results into a clean, comprehensive summary.
-    """
     research_brief = state.get("research_brief", "")
     search_results = state.get("search_results", [])
     search_iteration = state.get("search_iteration", 0)
@@ -212,10 +194,6 @@ def compression_node(state: ResearchState) -> ResearchState:
 
 
 def reflection_node(state: ResearchState) -> ResearchState:
-    """
-    Reflect on compressed findings, identify knowledge gaps, and decide next steps.
-    """
-
     research_brief = state.get("research_brief", "")
     compressed_findings = state.get("compressed_findings", "")
     search_iteration = state.get("search_iteration", 0)
@@ -250,10 +228,6 @@ def reflection_node(state: ResearchState) -> ResearchState:
 
 
 def generate_report_node(state: ResearchState) -> ResearchState:
-    """
-    Generate final comprehensive markdown report with citations.
-    """
-
     research_brief = state.get("research_brief", "")
     compressed_findings = state.get("compressed_findings", "")
     search_results = state.get("search_results", [])
@@ -285,9 +259,6 @@ def generate_report_node(state: ResearchState) -> ResearchState:
 
 
 def save_pdf_node(state: ResearchState) -> ResearchState:
-    """
-    Convert markdown report to PDF and save locally.
-    """
     messages = state["messages"]
 
     report_content = None
@@ -297,7 +268,7 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
             break
 
     if not report_content:
-        raise ValueError("No report content found in messages (looking for AI message >1000 chars)")
+        raise NodeError("No report content found in messages (looking for AI message >1000 chars)")
 
     original_query = messages[0].content if messages else "research_report"
 

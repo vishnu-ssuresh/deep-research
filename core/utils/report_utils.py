@@ -1,9 +1,9 @@
-"""Utilities for report generation and file operations."""
-
 import os
 
 import markdown
 from xhtml2pdf import pisa
+
+from ..errors import FileOperationError
 
 
 def save_report_to_disk(
@@ -11,33 +11,17 @@ def save_report_to_disk(
     filename: str,
     reports_dir: str = "reports",
 ) -> tuple[str, str]:
-    """
-    Save markdown report as both .md and .pdf files.
-
-    Args:
-        report_content: The markdown content to save
-        filename: The filename (without extension)
-        reports_dir: Directory to save reports in
-
-    Returns:
-        Tuple of (markdown_path, pdf_path)
-
-    Raises:
-        ValueError: If file operations fail
-    """
     os.makedirs(reports_dir, exist_ok=True)
 
     markdown_path = os.path.join(reports_dir, f"{filename}.md")
     pdf_path = os.path.join(reports_dir, f"{filename}.pdf")
 
-    # Save markdown version
     try:
         with open(markdown_path, "w", encoding="utf-8") as f:
             f.write(report_content)
     except Exception as e:
-        raise ValueError(f"Failed to save markdown: {str(e)}")
+        raise FileOperationError(f"Failed to save markdown: {str(e)}")
 
-    # Convert markdown to HTML and then to PDF
     try:
         html_content = markdown.markdown(
             report_content, extensions=["extra", "codehilite", "tables", "toc"]
@@ -48,24 +32,17 @@ def save_report_to_disk(
             pisa_status = pisa.CreatePDF(styled_html, dest=pdf_file)
 
         if pisa_status.err:
-            raise ValueError("PDF generation had errors")
+            raise FileOperationError("PDF generation had errors")
 
+    except FileOperationError:
+        raise
     except Exception as e:
-        raise ValueError(f"Failed to generate PDF: {str(e)}")
+        raise FileOperationError(f"Failed to generate PDF: {str(e)}")
 
     return markdown_path, pdf_path
 
 
 def _create_styled_html(html_content: str) -> str:
-    """
-    Wrap HTML content with styling for PDF generation.
-
-    Args:
-        html_content: The HTML content to wrap
-
-    Returns:
-        Styled HTML document string
-    """
     return f"""
     <!DOCTYPE html>
     <html>
