@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage
 
-from core.errors import APIKeyError
+from core.exceptions import APIKeyException
 from core.helpers import create_graph
 
 
@@ -11,9 +11,9 @@ def main():
     load_dotenv()
 
     if not os.getenv("OPENAI_API_KEY"):
-        raise APIKeyError("OPENAI_API_KEY not found in environment variables")
+        raise APIKeyException("OPENAI_API_KEY not found in environment variables")
     if not os.getenv("EXA_API_KEY"):
-        raise APIKeyError("EXA_API_KEY not found in environment variables")
+        raise APIKeyException("EXA_API_KEY not found in environment variables")
 
     print("=== Deep Research Agent ===\n")
     query = input("Enter your research query: ").strip()

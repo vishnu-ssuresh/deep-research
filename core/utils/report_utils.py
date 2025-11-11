@@ -3,7 +3,7 @@ import os
 import markdown
 from xhtml2pdf import pisa
 
-from ..errors import FileOperationError
+from ..exceptions import FileOperationException
 
 
 def save_report_to_disk(
@@ -20,7 +20,7 @@ def save_report_to_disk(
         with open(markdown_path, "w", encoding="utf-8") as f:
             f.write(report_content)
     except Exception as e:
-        raise FileOperationError(f"Failed to save markdown: {str(e)}")
+        raise FileOperationException(f"Failed to save markdown: {str(e)}")
 
     try:
         html_content = markdown.markdown(
@@ -32,12 +32,12 @@ def save_report_to_disk(
             pisa_status = pisa.CreatePDF(styled_html, dest=pdf_file)
 
         if pisa_status.err:
-            raise FileOperationError("PDF generation had errors")
+            raise FileOperationException("PDF generation had errors")
 
-    except FileOperationError:
+    except FileOperationException:
         raise
     except Exception as e:
-        raise FileOperationError(f"Failed to generate PDF: {str(e)}")
+        raise FileOperationException(f"Failed to generate PDF: {str(e)}")
 
     return markdown_path, pdf_path
 

@@ -1,13 +1,13 @@
 import os
 from typing import Any, Optional, Union
 from exa_py import Exa
-from ..errors import APIKeyError, SearchServiceError
+from ..exceptions import APIKeyException, SearchServiceException
 
 class ExaClient:
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or os.getenv("EXA_API_KEY")
         if not self.api_key:
-            raise APIKeyError(
+            raise APIKeyException(
                 "Exa API key must be set in EXA_API_KEY environment variable"
             )
 
@@ -51,4 +51,4 @@ class ExaClient:
             return formatted_results
 
         except Exception as e:
-            raise SearchServiceError(f"Exa search failed: {str(e)}") from e
+            raise SearchServiceException(f"Exa search failed: {str(e)}") from e

@@ -1,6 +1,6 @@
 from langchain_core.messages import AIMessage, HumanMessage
 
-from ..errors import NodeError
+from ..exceptions import NodeException
 from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries
 from ..prompts import (
     CLARIFY_SYSTEM_PROMPT,
@@ -133,7 +133,7 @@ def search_node(state: ResearchState) -> ResearchState:
     search_iteration = state.get("search_iteration", 0)
 
     if not search_queries:
-        raise NodeError("No search queries found in state")
+        raise NodeException("No search queries found in state")
 
     exa = ExaClient()
 
@@ -268,7 +268,7 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
             break
 
     if not report_content:
-        raise NodeError("No report content found in messages (looking for AI message >1000 chars)")
+        raise NodeException("No report content found in messages (looking for AI message >1000 chars)")
 
     original_query = messages[0].content if messages else "research_report"
 
