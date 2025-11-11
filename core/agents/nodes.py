@@ -167,7 +167,7 @@ def mcp_tool_node(state: ResearchState) -> ResearchState:
     # server_configs = {}
     # mcp_client = MultiServerMCPClient(server_configs)
     # tools = await mcp_client.get_tools()
-    # agent = create_agent("gpt-4o-mini", tools=tools)
+    # agent = create_agent("gpt-4.1", tools=tools)
 
     # Return dummy results
     return {
@@ -253,7 +253,6 @@ def generate_report_node(state: ResearchState) -> ResearchState:
         system_prompt=GENERATE_REPORT_SYSTEM_PROMPT,
         user_prompt=user_prompt,
         temperature=0.4,
-        model="gpt-4o",
     )
 
     messages.append(AIMessage(content=report))
