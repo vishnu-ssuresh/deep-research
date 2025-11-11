@@ -25,7 +25,7 @@ from .state import ResearchState
 
 def clarify_node(state: ResearchState) -> ResearchState:
     messages = state["messages"]
-    original_query = messages[0].content if messages else ""
+    original_query = messages[0].content
 
     llm = OpenAIClient()
 
@@ -74,7 +74,7 @@ def research_brief_node(state: ResearchState) -> ResearchState:
         temperature=0.5,
     )
 
-    print(f"\n=== Research Brief ===\n{research_brief}\n")
+    print(f"Research brief:\n{research_brief}")
 
     return {
         "research_brief": research_brief,
@@ -87,12 +87,8 @@ def generate_queries_node(state: ResearchState) -> ResearchState:
 
     llm = OpenAIClient()
 
-    if search_iteration == 0:
-        iteration_context = ""
-        num_queries = 5
-    else:
-        iteration_context = f" (iteration {search_iteration + 1})"
-        num_queries = 3
+    iteration_context = search_iteration + 1
+    num_queries = 5 if search_iteration == 0 else 3
 
     system_prompt = GENERATE_QUERIES_SYSTEM_PROMPT.format(
         iteration_context=iteration_context,
@@ -116,8 +112,7 @@ def generate_queries_node(state: ResearchState) -> ResearchState:
 
     queries = response.queries
 
-    # TODO: comment out
-    print(f"\n=== Generated Search Queries (Iteration {search_iteration + 1}) ===")
+    print(f"Generated search queries (iteration {search_iteration + 1}):")
     for i, query in enumerate(queries, 1):
         print(f"{i}. {query}")
     print()
@@ -137,11 +132,9 @@ def search_node(state: ResearchState) -> ResearchState:
 
     exa = ExaClient()
 
-    print(f"\n=== Executing Searches (Iteration {search_iteration + 1}) ===")
+    print(f"Executing searches (iteration {search_iteration + 1}):")
 
-    for i, query in enumerate(search_queries, 1):
-        print(f"[{i}/{len(search_queries)}] Searching: {query}")
-
+    for query in search_queries:
         try:
             results = exa.call(
                 query=query,
@@ -149,23 +142,36 @@ def search_node(state: ResearchState) -> ResearchState:
                 text={"max_characters": 2000},
             )
 
-            # TODO: comment out
+            # Add the search query to each result for reference in compression prompt
             for result in results:
                 result["query"] = query
-                result["iteration"] = search_iteration + 1
 
             search_results.extend(results)
 
-        except Exception:
-            # TODO: handle error
-            continue
-
-    print(f"\nTotal results accumulated: {len(search_results)}\n")
+        except Exception as e:
+            raise NodeException(f"Error executing search for query: {query}") from e
 
     return {
         "search_queries": search_queries,
         "search_results": search_results,
         "search_iteration": search_iteration + 1,
+    }
+
+
+def mcp_tool_node(state: ResearchState) -> ResearchState:
+    """
+    Connects with Model Context Protocol (MCP) servers to augment research.
+    """
+
+    # Basic MCP integration (https://docs.langchain.com/oss/python/langchain/mcp)
+    # server_configs = {}
+    # mcp_client = MultiServerMCPClient(server_configs)
+    # tools = await mcp_client.get_tools()
+    # agent = create_agent("gpt-4o-mini", tools=tools)
+
+    # Return dummy results
+    return {
+        "mcp_tool_results": "MCP tool results",
     }
 
 
@@ -185,7 +191,7 @@ def compression_node(state: ResearchState) -> ResearchState:
     compressed_findings = llm.call(
         system_prompt=COMPRESSION_SYSTEM_PROMPT,
         user_prompt=user_prompt,
-        temperature=0.3,
+        temperature=0.2,
     )
 
     return {
@@ -211,12 +217,11 @@ def reflection_node(state: ResearchState) -> ResearchState:
     response = llm.call(
         system_prompt=system_prompt,
         user_prompt=user_prompt,
-        temperature=0.5,
+        temperature=0.3,
         response_format=DecisionOutput,
     )
 
-    print("💭 Thought Process:")
-    print(f"{response.thought_process}\n")
+    print(f"Thought process:\n{response.thought_process}")
 
     return {
         "search_queries": response.follow_up_queries
@@ -233,7 +238,7 @@ def generate_report_node(state: ResearchState) -> ResearchState:
     search_results = state.get("search_results", [])
     messages = state["messages"]
 
-    original_query = messages[0].content if messages else "Research Report"
+    original_query = messages[0].content
 
     llm = OpenAIClient()
 
@@ -263,14 +268,14 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
 
     report_content = None
     for msg in reversed(messages):
-        if msg.type == "ai" and len(msg.content) > 1000:
+        if msg.type == "ai":
             report_content = msg.content
             break
 
     if not report_content:
-        raise NodeException("No report content found in messages (looking for AI message >1000 chars)")
+        raise NodeException("No report content found in messages")
 
-    original_query = messages[0].content if messages else "research_report"
+    original_query = messages[0].content
 
     llm = OpenAIClient()
     user_prompt = build_filename_user_prompt(original_query)
@@ -288,21 +293,3 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
     )
 
     return state
-
-
-def mcp_tool_node(state: ResearchState) -> ResearchState:
-    """
-    Connects with Model Context Protocol (MCP) servers to augment research.
-    """
-
-    # Basic MCP integration (https://docs.langchain.com/oss/python/langchain/mcp)
-    # server_configs = {}
-    # mcp_client = MultiServerMCPClient(server_configs)
-    # tools = await mcp_client.get_tools()
-    # agent = create_agent("gpt-4o-mini", tools=tools)
-
-    # Return dummy results
-    return {
-        "mcp_tool_results": "MCP tool results",
-    }
-

@@ -5,4 +5,3 @@ from .report_utils import save_report_to_disk
 __all__ = [
     "save_report_to_disk",
 ]
-

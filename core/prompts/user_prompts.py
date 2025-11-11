@@ -1,4 +1,4 @@
-from typing import Any
+from langchain_core.messages import BaseMessage
 
 
 def build_clarify_user_prompt(original_query: str) -> str:
@@ -7,7 +7,7 @@ def build_clarify_user_prompt(original_query: str) -> str:
     )
 
 
-def build_research_brief_user_prompt(messages: list[Any]) -> str:
+def build_research_brief_user_prompt(messages: list[BaseMessage]) -> str:
     context_parts = []
     for msg in messages:
         if msg.type == "human":
@@ -68,7 +68,7 @@ Remember:
 
 def build_compression_user_prompt(
     research_brief: str,
-    search_results: list[dict[str, Any]],
+    search_results: list[dict],
     search_iteration: int,
 ) -> str:
     results_text = []
@@ -126,7 +126,7 @@ def build_report_user_prompt(
     original_query: str,
     research_brief: str,
     compressed_findings: str,
-    search_results: list[dict[str, Any]],
+    search_results: list[dict],
 ) -> str:
     sources_text = []
     for i, result in enumerate(search_results, 1):

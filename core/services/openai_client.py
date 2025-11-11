@@ -9,6 +9,7 @@ from ..exceptions import APIKeyException, LLMServiceException
 
 T = TypeVar("T", bound=BaseModel)
 
+
 class OpenAIClient:
     def __init__(self, api_key: str | None = None, model: str = "gpt-4o-mini"):
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
@@ -24,9 +25,9 @@ class OpenAIClient:
         self,
         system_prompt: str,
         user_prompt: str,
-        temperature: float = 0.7,
+        temperature: float = 0.5,
         response_format: type[T] | None = None,
-        model: str | None = None,
+        model: str = "gpt-5",
     ) -> str:
         try:
             messages = [

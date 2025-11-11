@@ -16,4 +16,3 @@ class NodeException(Exception):
 
 class FileOperationException(Exception):
     pass
-

@@ -34,8 +34,6 @@ def save_report_to_disk(
         if pisa_status.err:
             raise FileOperationException("PDF generation had errors")
 
-    except FileOperationException:
-        raise
     except Exception as e:
         raise FileOperationException(f"Failed to generate PDF: {str(e)}") from e
 
@@ -113,4 +111,3 @@ def _create_styled_html(html_content: str) -> str:
     </body>
     </html>
     """
-

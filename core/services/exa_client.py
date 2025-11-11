@@ -1,5 +1,4 @@
 import os
-from typing import Any
 
 from exa_py import Exa
 
@@ -22,7 +21,7 @@ class ExaClient:
         num_results: int = 5,
         text: bool | dict[str, int] = True,
         highlights: bool | dict[str, int] = False,
-    ) -> list[dict[str, Any]]:
+    ) -> list[dict]:
         try:
             search_params = {
                 "query": query,

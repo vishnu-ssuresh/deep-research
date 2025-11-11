@@ -1,4 +1,4 @@
-from typing import Any, TypedDict
+from typing import TypedDict
 
 from langchain_core.messages import BaseMessage
 
@@ -7,7 +7,7 @@ class ResearchState(TypedDict):
     messages: list[BaseMessage]
     research_brief: str | None
     search_queries: list[str]
-    search_results: list[dict[str, Any]]
+    search_results: list[dict]
     compressed_findings: str | None
     knowledge_gaps: list[str]
     search_iteration: int

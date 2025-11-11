@@ -1,8 +1,10 @@
 import os
+
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage
-from core.exceptions import APIKeyException
+
 from core.agents import create_graph
+from core.exceptions import APIKeyException
 
 
 def main():
