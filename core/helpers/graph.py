@@ -5,6 +5,7 @@ from .nodes import (
     compression_node,
     generate_queries_node,
     generate_report_node,
+    mcp_tool_node,
     reflection_node,
     research_brief_node,
     save_pdf_node,
@@ -27,6 +28,7 @@ def create_graph() -> StateGraph:
     workflow.add_node("research_brief", research_brief_node)
     workflow.add_node("generate_queries", generate_queries_node)
     workflow.add_node("search", search_node)
+    workflow.add_node("mcp_tools", mcp_tool_node)
     workflow.add_node("compress", compression_node)
     workflow.add_node("reflect", reflection_node)
     workflow.add_node("generate_report", generate_report_node)
@@ -36,8 +38,11 @@ def create_graph() -> StateGraph:
     workflow.add_edge("clarify", "research_brief")
     workflow.add_edge("research_brief", "generate_queries")
     workflow.add_edge("generate_queries", "search")
+    workflow.add_edge("generate_queries", "mcp_tools")
     workflow.add_edge("search", "compress")
+    workflow.add_edge("mcp_tools", "compress")
     workflow.add_edge("compress", "reflect")
+    
     workflow.add_conditional_edges(
         "reflect",
         should_continue_searching,

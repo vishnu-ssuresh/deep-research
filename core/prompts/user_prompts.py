@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any
 
 
 def build_clarify_user_prompt(original_query: str) -> str:
@@ -33,7 +33,7 @@ def build_generate_queries_user_prompt(
     search_iteration: int,
     num_queries: int = 5,
     compressed_findings: str = "",
-    knowledge_gaps: Optional[list[str]] = None,
+    knowledge_gaps: list[str] | None = None,
 ) -> str:
     if search_iteration == 0:
         return f"""Research Brief:

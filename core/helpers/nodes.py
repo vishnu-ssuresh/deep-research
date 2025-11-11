@@ -1,4 +1,5 @@
 from langchain_core.messages import AIMessage, HumanMessage
+from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from ..exceptions import NodeException
 from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries
@@ -288,3 +289,19 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
     )
 
     return state
+
+
+def mcp_tool_node(state: ResearchState) -> ResearchState:
+    """
+    Connects with Model Context Protocol (MCP) servers to augment research.
+    """
+
+    # Basic MCP integration
+    # server_configs = {}
+    # mcp_client = MultiServerMCPClient(server_configs)
+    # tools = await mcp_client.get_tools()
+    # agent = create_agent("gpt-4o-mini", tools=tools)
+
+    # Return dummy results
+    return state
+

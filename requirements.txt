@@ -6,4 +6,5 @@ python-dotenv>=1.2.1
 ruff>=0.14.4
 markdown>=3.5.0
 xhtml2pdf>=0.2.16
+langchain-mcp-adapters>=0.1.0
 

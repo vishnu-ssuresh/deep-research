@@ -1,5 +1,5 @@
 import os
-from typing import Any, Optional, Union
+from typing import Any
 
 from exa_py import Exa
 
@@ -7,7 +7,7 @@ from ..exceptions import APIKeyException, SearchServiceException
 
 
 class ExaClient:
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, api_key: str | None = None):
         self.api_key = api_key or os.getenv("EXA_API_KEY")
         if not self.api_key:
             raise APIKeyException(
@@ -20,8 +20,8 @@ class ExaClient:
         self,
         query: str,
         num_results: int = 5,
-        text: Union[bool, dict[str, int]] = True,
-        highlights: Union[bool, dict[str, int]] = False,
+        text: bool | dict[str, int] = True,
+        highlights: bool | dict[str, int] = False,
     ) -> list[dict[str, Any]]:
         try:
             search_params = {

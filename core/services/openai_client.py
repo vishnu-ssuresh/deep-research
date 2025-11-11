@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Optional, TypeVar
+from typing import TypeVar
 
 from openai import OpenAI
 from pydantic import BaseModel
@@ -10,7 +10,7 @@ from ..exceptions import APIKeyException, LLMServiceException
 T = TypeVar("T", bound=BaseModel)
 
 class OpenAIClient:
-    def __init__(self, api_key: Optional[str] = None, model: str = "gpt-4o-mini"):
+    def __init__(self, api_key: str | None = None, model: str = "gpt-4o-mini"):
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
         if not self.api_key:
             raise APIKeyException(
@@ -25,8 +25,8 @@ class OpenAIClient:
         system_prompt: str,
         user_prompt: str,
         temperature: float = 0.7,
-        response_format: Optional[type[T]] = None,
-        model: Optional[str] = None,
+        response_format: type[T] | None = None,
+        model: str | None = None,
     ) -> str:
         try:
             messages = [

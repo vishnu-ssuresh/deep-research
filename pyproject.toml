@@ -14,8 +14,8 @@ exclude = [
 # Set the line length
 line-length = 88
 
-# Target Python 3.9+
-target-version = "py39"
+# Target Python 3.12+
+target-version = "py312"
 
 [tool.ruff.lint]
 # Enable recommended rules
