@@ -1,7 +1,10 @@
 import os
 from typing import Any, Optional, Union
+
 from exa_py import Exa
+
 from ..exceptions import APIKeyException, SearchServiceException
+
 
 class ExaClient:
     def __init__(self, api_key: Optional[str] = None):

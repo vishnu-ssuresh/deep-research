@@ -1,8 +1,10 @@
 import json
 import os
 from typing import Optional, TypeVar
+
 from openai import OpenAI
 from pydantic import BaseModel
+
 from ..exceptions import APIKeyException, LLMServiceException
 
 T = TypeVar("T", bound=BaseModel)

@@ -1,5 +1,7 @@
 from typing import Any, Optional, TypedDict
+
 from langchain_core.messages import BaseMessage
+
 
 class ResearchState(TypedDict):
     messages: list[BaseMessage]

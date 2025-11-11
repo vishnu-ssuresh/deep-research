@@ -20,7 +20,7 @@ def save_report_to_disk(
         with open(markdown_path, "w", encoding="utf-8") as f:
             f.write(report_content)
     except Exception as e:
-        raise FileOperationException(f"Failed to save markdown: {str(e)}")
+        raise FileOperationException(f"Failed to save markdown: {str(e)}") from e
 
     try:
         html_content = markdown.markdown(
@@ -37,7 +37,7 @@ def save_report_to_disk(
     except FileOperationException:
         raise
     except Exception as e:
-        raise FileOperationException(f"Failed to generate PDF: {str(e)}")
+        raise FileOperationException(f"Failed to generate PDF: {str(e)}") from e
 
     return markdown_path, pdf_path
 
