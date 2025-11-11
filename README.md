@@ -1,19 +1,30 @@
-# Deep Research
-
-A LangGraph-based research agent that conducts comprehensive research by iteratively searching, compressing findings, and generating detailed reports.
+# Deep Research Agent
 
 ## Overview
 
-Deep Research is an AI-powered research assistant that automates the process of gathering, analyzing, and synthesizing information from multiple sources. The system uses a graph-based workflow to:
+A LangGraph-based research agent that conducts research by iteratively searching, compressing findings, and generating a detailed report. The system orchestrates the workflow using LangGraph, combining OpenAI's LLMs along with Exa for web search.
 
-- Clarify research objectives through interactive questioning
-- Generate targeted search queries
-- Execute parallel web searches and MCP tool integrations
-- Compress and analyze findings
-- Iteratively refine research through reflection
-- Generate comprehensive reports in Markdown and PDF formats
+### How It Works
 
-The agent leverages OpenAI's GPT models for reasoning and Exa for web search capabilities. It includes support for Model Context Protocol (MCP) servers to integrate external tools and data sources.
+The agent follows a cyclic process:
+
+1. **Clarification**: Starts by generating questions to understand the scope of the user's research topic.
+
+2. **Research Planning**: Creates a research brief outlining objectives and key areas to investigate.
+
+3. **Query Generation**: Generates 5 initial search queries (3 for subsequent iterations) tailored to the research brief and knowledge gaps.
+
+4. **Parallel Data Collection**: 
+   - **Web Search**: Uses Exa's search API to find/retrieve relevant web content.
+   - **MCP Integration**: Uses Langchain's MCP adapters to connect with external MCP servers.
+
+5. **Compression**: Distills accumulated search results and findings.
+
+6. **Reflection**: Evaluates research completeness, identifies knowledge gaps, and decides whether additional iterations are needed (max 5 total iterations).
+
+7. **Report Generation**: Once research is complete, it synthesizes all findings into a comprehensive report with proper citations.
+
+8. **Export**: Saves the final report as both Markdown and PDF formats.
 
 ## Setup
 
@@ -27,14 +38,14 @@ The agent leverages OpenAI's GPT models for reasoning and Exa for web search cap
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/deep-research.git
+git clone https://github.com/vishnu-ssuresh/deep-research.git
 cd deep-research
 ```
 
 2. Create a virtual environment:
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
 ```
 
 3. Install dependencies:
@@ -66,21 +77,6 @@ The agent will:
 4. Generate a comprehensive report
 5. Save the report as both Markdown and PDF in the `reports/` directory
 
-### Example Workflow
-
-```bash
-$ python agent.py
-
-# The agent will prompt you for:
-# - Initial research query
-# - Answers to clarifying questions
-# - The agent then runs autonomously
-
-# Output will be saved to:
-# reports/your-research-topic.md
-# reports/your-research-topic.pdf
-```
-
 ## Development
 
 ### Linting
@@ -89,50 +85,22 @@ The project uses Ruff for linting and formatting:
 
 ```bash
 # Check for linting issues
-./venv/bin/ruff check .
+ruff check .
 
 # Auto-fix issues
-./venv/bin/ruff check --fix .
+ruff check --fix .
 
 # Format code
-./venv/bin/ruff format .
+ruff format .
 ```
 
 ### MCP Integration
 
 The project includes Model Context Protocol (MCP) support for integrating external tools and data sources.
 
-**Current Status**: MCP node runs in dummy mode by default (no external dependencies required).
-
 **To enable real MCP servers**:
 
 Edit `core/helpers/nodes.py` in the `mcp_tool_node()` function:
-
-```python
-server_configs = {
-    "filesystem": {
-        "transport": "stdio",
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/data"],
-    },
-}
-```
-
-Supported MCP server types:
-- `stdio`: Local subprocess communication (e.g., filesystem, SQLite)
-- `streamable_http`: HTTP-based remote servers
-
-### Architecture
-
-The system uses LangGraph to orchestrate a stateful workflow:
-
-```
-START → clarify → research_brief → generate_queries
-         ↓
-    [search, mcp_tools] (parallel)
-         ↓
-    compress → reflect → (loop or continue) → generate_report → save_pdf → END
-```
 
 ## Project Structure
 
@@ -184,3 +152,7 @@ deep-research/
 **Change LLM models**: Edit model parameters in `core/services/openai_client.py`
 
 **Configure MCP servers**: Edit `server_configs` in `mcp_tool_node()` in `core/helpers/nodes.py`
+
+## Next Steps
+
+The agent could be extended with CLI configuration in `agent.py` to support command-line arguments like `--max-iterations`, `--model`, allowing users to customize behavior without directly modifying the code. A human-in-the-loop mode would be valuable where the agent pauses at each iteration to display the reflection node's thought process and allow users to steer the research direction. Visual enhancements could be added through MCP integration by connecting to image search APIs or chart/diagram generation tools to visually enhance the final report.
