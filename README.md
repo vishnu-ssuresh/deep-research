@@ -2,7 +2,7 @@
 
 ## Overview
 
-A LangGraph-based research agent that conducts research by iteratively searching, compressing findings, and generating a detailed report. The system orchestrates the workflow using LangGraph, combining OpenAI's LLMs along with Exa for web search.
+A LangGraph-based research agent that conducts research by iteratively searching, compressing findings, and generating a detailed report. The agent is orchestrated through LangGraph, using OpenAI's LLMs and Exa's web search.
 
 ### How It Works
 
@@ -15,12 +15,12 @@ The agent follows a cyclic process:
 3. **Query Generation**: Generates 5 initial search queries (3 for subsequent iterations) tailored to the research brief and knowledge gaps.
 
 4. **Parallel Data Collection**: 
-   - **Web Search**: Uses Exa's search API to find/retrieve relevant web content.
+   - **Web Search**: Uses Exa's search API to find and retrieve relevant web content.
    - **MCP Integration**: Uses Langchain's MCP adapters to connect with external MCP servers.
 
 5. **Compression**: Distills accumulated search results and findings, allowing the agent to synthesize information without running into context length limits.
 
-6. **Reflection**: Uses a "think" response to evaluate research completeness, identify knowledge gaps, and produce follow-up queries.
+6. **Reflection**: Uses a "think" step to evaluate research completeness, identify knowledge gaps, and produce follow-up queries.
 
 7. **Report Generation**: Once research is complete, it synthesizes all findings into a comprehensive report with proper citations.
 
@@ -149,10 +149,14 @@ deep-research/
 
 **Modify search parameters**: Edit `search_node()` in `core/helpers/nodes.py`
 
-**Change LLM models**: Edit model parameters in `core/services/openai_client.py`
+**Change LLM parameters**: Edit `core/services/openai_client.py`
 
 **Configure MCP servers**: Edit `server_configs` in `mcp_tool_node()` in `core/helpers/nodes.py`
 
 ## Next Steps
 
-The agent could be extended with CLI configuration in `agent.py` to support command-line arguments like `--max-iterations`, `--model`, allowing users to customize behavior without directly modifying the code. A human-in-the-loop mode would be valuable where the agent pauses at each iteration to display the reflection node's thought process and allow users to steer the research direction. Visual enhancements could be added through MCP integration by connecting to image search APIs or chart/diagram generation tools to visually enhance the final report.
+1. **CLI Configuration**: Extend `agent.py` to support command-line arguments like `--max-iterations` and `--model`, allowing the user to customize behavior without directly modifying the code.
+
+2. **Human-in-the-Loop Mode**: Add an interactive mode where the agent pauses at each iteration to display the reflection node's thought process and allow the user to steer the research direction.
+
+3. **Visual Enhancements**: Add image and chart generation through MCP integration by connecting to image search APIs or chart/diagram generation tools to visually enhance the final report.
