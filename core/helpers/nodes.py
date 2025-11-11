@@ -1,5 +1,4 @@
 from langchain_core.messages import AIMessage, HumanMessage
-from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from ..exceptions import NodeException
 from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries

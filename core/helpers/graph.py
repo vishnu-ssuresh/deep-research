@@ -42,7 +42,7 @@ def create_graph() -> StateGraph:
     workflow.add_edge("search", "compress")
     workflow.add_edge("mcp_tools", "compress")
     workflow.add_edge("compress", "reflect")
-    
+
     workflow.add_conditional_edges(
         "reflect",
         should_continue_searching,
