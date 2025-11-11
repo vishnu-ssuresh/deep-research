@@ -4,6 +4,10 @@
 
 A LangGraph-based research agent that conducts research by iteratively searching, compressing findings, and generating a detailed report. The agent is orchestrated through LangGraph, using OpenAI's LLMs and Exa's web search.
 
+### Example Report
+
+We used the Deep Research Agent to create a comprehensive report on LangChain's history, including its founders, product offerings, and funding details. You can find the full report in the [`reports/`](reports/) directory.
+
 ### How It Works
 
 The agent follows a cyclic process:
@@ -73,7 +77,7 @@ python agent.py
 The agent will:
 1. Ask clarifying questions about your research topic
 2. Create a research brief
-3. Conduct iterative searches (up to 5 iterations)
+3. Conduct iterative searches (minimum 3 iterations, up to 5 iterations)
 4. Generate a comprehensive report
 5. Save the report as both Markdown and PDF in the `reports/` directory
 
@@ -100,7 +104,7 @@ The project includes Model Context Protocol (MCP) support for integrating extern
 
 **To enable real MCP servers**:
 
-Edit `core/helpers/nodes.py` in the `mcp_tool_node()` function:
+Edit `core/agents/nodes.py` in the `mcp_tool_node()` function:
 
 ## Project Structure
 
@@ -114,7 +118,7 @@ deep-research/
 ├── core/
 │   ├── __init__.py
 │   │
-│   ├── helpers/
+│   ├── agents/
 │   │   ├── __init__.py
 │   │   ├── graph.py
 │   │   ├── nodes.py
@@ -145,13 +149,13 @@ deep-research/
 
 ### Customization
 
-**Adjust iteration count**: Edit `should_continue_searching()` in `core/helpers/graph.py`
+**Adjust iteration count**: Edit `should_continue_searching()` in `core/agents/graph.py`
 
-**Modify search parameters**: Edit `search_node()` in `core/helpers/nodes.py`
+**Modify search parameters**: Edit `search_node()` in `core/agents/nodes.py`
 
 **Change LLM parameters**: Edit `core/services/openai_client.py`
 
-**Configure MCP servers**: Edit `server_configs` in `mcp_tool_node()` in `core/helpers/nodes.py`
+**Configure MCP servers**: Edit `server_configs` in `mcp_tool_node()` in `core/agents/nodes.py`
 
 ## Next Steps
 
