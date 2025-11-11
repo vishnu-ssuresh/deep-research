@@ -223,12 +223,15 @@ def reflection_node(state: ResearchState) -> ResearchState:
 
     print(f"Thought process:\n{response.thought_process}")
 
+    force_continue = search_iteration < 3
+    needs_more = response.needs_more_context or force_continue
+
     return {
         "search_queries": response.follow_up_queries
         if response.needs_more_context
         else [],
         "knowledge_gaps": response.knowledge_gaps,
-        "needs_more_context": response.needs_more_context and search_iteration < 5,
+        "needs_more_context": needs_more and search_iteration < 5,
     }
 
 

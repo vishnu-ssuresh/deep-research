@@ -15,7 +15,14 @@ from .state import ResearchState
 
 
 def should_continue_searching(state: ResearchState) -> str:
-    if state.get("needs_more_context", False) and state.get("search_iteration", 0) < 5:
+    search_iteration = state.get("search_iteration", 0)
+    needs_more_context = state.get("needs_more_context", False)
+
+    # Minimum 3 iterations
+    if search_iteration < 3:
+        return "generate_queries"
+
+    if needs_more_context and search_iteration < 5:
         return "generate_queries"
 
     return "generate_report"
