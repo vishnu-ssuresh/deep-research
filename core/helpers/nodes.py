@@ -282,7 +282,7 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
         temperature=0.2,
     ).strip()
 
-    markdown_path, pdf_path = save_report_to_disk(
+    save_report_to_disk(
         report_content=report_content,
         filename=filename,
         reports_dir="reports",
@@ -296,12 +296,14 @@ def mcp_tool_node(state: ResearchState) -> ResearchState:
     Connects with Model Context Protocol (MCP) servers to augment research.
     """
 
-    # Basic MCP integration
+    # Basic MCP integration (https://docs.langchain.com/oss/python/langchain/mcp)
     # server_configs = {}
     # mcp_client = MultiServerMCPClient(server_configs)
     # tools = await mcp_client.get_tools()
     # agent = create_agent("gpt-4o-mini", tools=tools)
 
     # Return dummy results
-    return state
+    return {
+        "mcp_tool_results": "MCP tool results",
+    }
 
