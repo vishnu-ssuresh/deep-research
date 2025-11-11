@@ -20,7 +20,6 @@ from .user_prompts import (
 )
 
 __all__ = [
-    # System prompts
     "CLARIFY_SYSTEM_PROMPT",
     "RESEARCH_BRIEF_SYSTEM_PROMPT",
     "GENERATE_QUERIES_SYSTEM_PROMPT",
@@ -28,7 +27,6 @@ __all__ = [
     "DECIDE_SYSTEM_PROMPT",
     "GENERATE_REPORT_SYSTEM_PROMPT",
     "FILENAME_GENERATION_SYSTEM_PROMPT",
-    # User prompt builders
     "build_clarify_user_prompt",
     "build_research_brief_user_prompt",
     "build_generate_queries_user_prompt",

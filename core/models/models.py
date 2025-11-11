@@ -1,11 +1,7 @@
-"""Pydantic models for structured outputs."""
-
 from pydantic import BaseModel, Field
 
 
 class ClarifyingQuestions(BaseModel):
-    """Model for clarifying questions response."""
-
     questions: list[str] = Field(
         description="List of 2-4 clarifying questions",
         min_length=2,
@@ -14,8 +10,6 @@ class ClarifyingQuestions(BaseModel):
 
 
 class SearchQueries(BaseModel):
-    """Model for search queries response."""
-
     queries: list[str] = Field(
         description="List of search queries",
         min_length=1,
@@ -23,8 +17,6 @@ class SearchQueries(BaseModel):
 
 
 class DecisionOutput(BaseModel):
-    """Model for reflection node output."""
-
     thought_process: str = Field(
         description="Reasoning about what's been learned and what's still needed"
     )

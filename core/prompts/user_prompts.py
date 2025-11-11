@@ -1,18 +1,13 @@
-"""User prompt generation functions for the deep research agent."""
-
 from typing import Any, Optional
 
 
 def build_clarify_user_prompt(original_query: str) -> str:
-    """Build user prompt for clarifying questions generation."""
     return (
         f"User's research query: {original_query}\n\nGenerate 2-4 clarifying questions."
     )
 
 
 def build_research_brief_user_prompt(messages: list[Any]) -> str:
-    """Build user prompt for research brief generation."""
-    # Build context from all messages
     context_parts = []
     for msg in messages:
         if msg.type == "human":
@@ -40,9 +35,7 @@ def build_generate_queries_user_prompt(
     compressed_findings: str = "",
     knowledge_gaps: Optional[list[str]] = None,
 ) -> str:
-    """Build user prompt for search query generation."""
     if search_iteration == 0:
-        # Initial queries
         return f"""Research Brief:
 {research_brief}
 
@@ -53,7 +46,6 @@ Remember:
 - Avoid generating similar queries
 - Make queries self-contained with necessary context"""
     else:
-        # Follow-up queries
         gaps_text = "\n".join(f"- {gap}" for gap in (knowledge_gaps or []))
 
         return f"""Research Brief:
@@ -79,8 +71,6 @@ def build_compression_user_prompt(
     search_results: list[dict[str, Any]],
     search_iteration: int,
 ) -> str:
-    """Build user prompt for compression/summarization."""
-    # Format search results for compression
     results_text = []
     for i, result in enumerate(search_results, 1):
         result_info = f"""
@@ -92,7 +82,7 @@ Result {i}:
 """
         results_text.append(result_info)
 
-    results_summary = "\n".join(results_text[:30])  # Limit to avoid token overflow
+    results_summary = "\n".join(results_text)
 
     return f"""Research Brief:
 {research_brief}
@@ -112,7 +102,6 @@ def build_reflection_user_prompt(
     compressed_findings: str,
     search_iteration: int,
 ) -> str:
-    """Build user prompt for reflection/decision analysis."""
     return f"""Research Brief:
 {research_brief}
 
@@ -139,8 +128,6 @@ def build_report_user_prompt(
     compressed_findings: str,
     search_results: list[dict[str, Any]],
 ) -> str:
-    """Build user prompt for final report generation."""
-    # Format search results as sources for citation
     sources_text = []
     for i, result in enumerate(search_results, 1):
         title = result.get("title", "Untitled")
@@ -154,7 +141,7 @@ Content: {content}...
 """
         sources_text.append(source_entry)
 
-    sources_summary = "\n".join(sources_text[:50])  # Limit for token management
+    sources_summary = "\n".join(sources_text)
 
     return f"""Generate a high-quality answer to the user's question based on the provided summaries.
 
@@ -192,7 +179,6 @@ DO NOT mention that you are the final step of a research process. Write naturall
 
 
 def build_filename_user_prompt(original_query: str) -> str:
-    """Build user prompt for filename generation."""
     return f"""Based on this research query, generate a short, clean filename (without extension).
 
 Research Query: {original_query}
