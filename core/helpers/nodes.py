@@ -1,8 +1,4 @@
-import os
-
-import markdown
 from langchain_core.messages import AIMessage, HumanMessage
-from xhtml2pdf import pisa
 
 from ..models import ClarifyingQuestions, DecisionOutput, SearchQueries
 from ..prompts import (
@@ -22,6 +18,7 @@ from ..prompts import (
     build_research_brief_user_prompt,
 )
 from ..services import ExaClient, OpenAIClient
+from ..utils import save_report_to_disk
 from .state import ResearchState
 
 
@@ -292,7 +289,6 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
     """
     Convert markdown report to PDF and save locally.
     """
-
     messages = state["messages"]
 
     report_content = None
@@ -307,7 +303,6 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
     original_query = messages[0].content if messages else "research_report"
 
     llm = OpenAIClient()
-
     user_prompt = build_filename_user_prompt(original_query)
 
     filename = llm.call(
@@ -316,101 +311,10 @@ def save_pdf_node(state: ResearchState) -> ResearchState:
         temperature=0.2,
     ).strip()
 
-    reports_dir = "reports"
-    os.makedirs(reports_dir, exist_ok=True)
-
-    markdown_path = os.path.join(reports_dir, f"{filename}.md")
-    pdf_path = os.path.join(reports_dir, f"{filename}.pdf")
-
-    try:
-        with open(markdown_path, "w", encoding="utf-8") as f:
-            f.write(report_content)
-    except Exception as e:
-        # TODO: handle error
-        raise ValueError(f"Failed to save markdown: {str(e)}")
-
-    try:
-        html_content = markdown.markdown(report_content, extensions=["extra", "codehilite", "tables", "toc"])
-        styled_html = f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <style>
-                @page {{
-                    size: A4;
-                    margin: 2cm;
-                }}
-                body {{
-                    font-family: 'Helvetica', 'Arial', sans-serif;
-                    line-height: 1.6;
-                    color: #333;
-                    max-width: 100%;
-                }}
-                h1 {{
-                    color: #2c3e50;
-                    border-bottom: 3px solid #3498db;
-                    padding-bottom: 10px;
-                    margin-top: 30px;
-                }}
-                h2 {{
-                    color: #34495e;
-                    border-bottom: 2px solid #95a5a6;
-                    padding-bottom: 8px;
-                    margin-top: 25px;
-                }}
-                h3 {{
-                    color: #34495e;
-                    margin-top: 20px;
-                }}
-                a {{
-                    color: #3498db;
-                    text-decoration: none;
-                }}
-                a:hover {{
-                    text-decoration: underline;
-                }}
-                p {{
-                    margin: 12px 0;
-                    text-align: justify;
-                }}
-                ul, ol {{
-                    margin: 12px 0;
-                    padding-left: 30px;
-                }}
-                li {{
-                    margin: 8px 0;
-                }}
-                code {{
-                    background-color: #f4f4f4;
-                    padding: 2px 6px;
-                    border-radius: 3px;
-                    font-family: 'Courier New', monospace;
-                }}
-                blockquote {{
-                    border-left: 4px solid #3498db;
-                    padding-left: 20px;
-                    margin: 20px 0;
-                    color: #555;
-                    font-style: italic;
-                }}
-            </style>
-        </head>
-        <body>
-            {html_content}
-        </body>
-        </html>
-        """
-
-        with open(pdf_path, "wb") as pdf_file:
-            pisa_status = pisa.CreatePDF(styled_html, dest=pdf_file)
-
-        if pisa_status.err:
-            # TODO: handle error
-            raise ValueError("Failed to generate PDF")
-
-    except Exception as e:
-        # TODO: handle error
-        raise ValueError(f"Failed to generate PDF: {str(e)}")
+    markdown_path, pdf_path = save_report_to_disk(
+        report_content=report_content,
+        filename=filename,
+        reports_dir="reports",
+    )
 
     return state
